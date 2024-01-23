@@ -1,0 +1,13 @@
+https://www.techtarget.com/searchenterpriseai/tip/What-are-machine-learning-models-Types-and-examples#:~:text=A%20machine%20learning%20model%20automates,the%20problem%20to%20be%20solved.
+
+https://www.databricks.com/glossary/machine-learning-models
+
+https://towardsdatascience.com/the-actual-difference-between-statistics-and-machine-learning-64b49f07ea3
+
+https://towardsdatascience.com/introduction-to-causality-in-machine-learning-4cee9467f06f
+
+https://www.approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/
+
+https://en.wikipedia.org/wiki/Algorithmic_bias
+
+https://www.ibm.com/topics/software-development
