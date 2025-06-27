@@ -18,3 +18,6 @@ Jolt
 https://www.youtube.com/watch?v=_x5SW-L9RJ0&list=PLbHV3Y5vPIEF48ROSZsJiEXeaNGTp9B93
 
 https://www.youtube.com/watch?v=Ef4DZNGdkP4
+
+https://jolt-demo.appspot.com/#inception
+https://jsonpath.com/
