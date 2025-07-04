@@ -1,3 +1,26 @@
+
+https://www.bing.com/search?q=excellent%20references%20to%20understand%20JOLT%20and%20how%20it%20works%20to%20process%20and%20reformat%20JSON%20files&FORM=ARPSEC&PC=ARPL&PTAG=30530170
+
+https://www.bing.com/videos/riverview/relatedvideo?q=excellent+references+to+understand+JOLT+and+how+it+works+to+process+and+reformat+JSON+files&mid=92F7F0349EC113B05F7392F7F0349EC113B05F73&FORM=VIRE
+
+https://www.bing.com/videos/riverview/relatedvideo?q=excellent+references+to+understand+JOLT+and+how+it+works+to+process+and+reformat+JSON+files&mid=00CB39DCF19CA00ACDF100CB39DCF19CA00ACDF1&FORM=VIRE
+
+https://www.bing.com/videos/riverview/relatedvideo?q=excellent+references+to+understand+JOLT+and+how+it+works+to+process+and+reformat+JSON+files&mid=DB1ABB9AE4DF5B9959BFDB1ABB9AE4DF5B9959BF&FORM=VIRE
+
+https://www.bing.com/videos/riverview/relatedvideo?q=excellent+references+to+understand+JOLT+and+how+it+works+to+process+and+reformat+JSON+files&mid=8DEB568F810EC90A0EEE8DEB568F810EC90A0EEE&FORM=VIRE
+
+https://medium.com/@bhavna.gawhade/introduction-of-jolt-9611f663141c
+
+https://stackoverflow.com/questions/76303733/exploring-jolt-functions-for-json-to-json-transformations-an-overview
+
+https://dev.to/sunil_yaduvanshi/mastering-jolt-spec-operations-a-guide-with-examples-197o
+
+https://lucabiscotti.github.io/jolt-guide.github.io/
+
+https://www.bing.com/videos/riverview/relatedvideo?q=excellent+references+to+understand+JOLT+and+how+it+works+to+process+and+reformat+JSON+files&mid=8DEB568F810EC90A0EEE8DEB568F810EC90A0EEE&FORM=VIRE
+
+https://offlinetools.org/blog/jolt-offline-json-formatter
+=====================================================
 https://www.youtube.com/watch?v=U2WT_el8kbE
 
 https://www.youtube.com/watch?v=ivPpL_NtLl4
@@ -21,3 +44,5 @@ https://www.youtube.com/watch?v=Ef4DZNGdkP4
 
 https://jolt-demo.appspot.com/#inception
 https://jsonpath.com/
+
+
