@@ -1,0 +1,174 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "/*\r\n    6371.0 is the mean radius of the Earth in km\r\n    3958.761 is the mean radius of the Earth in miles\r\n*/\r\n\r\ndef haversineDistance(pointA: (Double, Double), pointB: (Double, Double)): Double = {\r\n  val deltaLat = math.toRadians(pointB._1 - pointA._1)\r\n  val deltaLong = math.toRadians(pointB._2 - pointA._2)\r\n  val a = math.pow(math.sin(deltaLat / 2), 2) + math.cos(math.toRadians(pointA._1)) * math.cos(math.toRadians(pointB._1)) * math.pow(math.sin(deltaLong / 2), 2)\r\n  val greatCircleDistance = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))\r\n  6371.0 * greatCircleDistance\r\n}",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-18T13:34:25-0400",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mhaversineDistance\u001b[0m: \u001b[1m\u001b[32m(pointA: (Double, Double), pointB: (Double, Double))Double\u001b[0m\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658164703479_644357645",
+      "id": "paragraph_1658164703479_644357645",
+      "dateCreated": "2022-07-18T13:18:23-0400",
+      "dateStarted": "2022-07-18T13:18:51-0400",
+      "dateFinished": "2022-07-18T13:19:22-0400",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25132"
+    },
+    {
+      "text": "\n// Example of use\n// one point = latitude, Longitude\n\nval pointA = (45.478227873091448, -73.569651246070862)\nval pointB = (45.549597678871763, -73.54187428951263)",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-18T13:38:28-0400",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mpointA\u001b[0m: \u001b[1m\u001b[32m(Double, Double)\u001b[0m = (45.47822787309145,-73.56965124607086)\n\u001b[1m\u001b[34mpointB\u001b[0m: \u001b[1m\u001b[32m(Double, Double)\u001b[0m = (45.54959767887176,-73.54187428951263)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658165228640_350617287",
+      "id": "paragraph_1658165228640_350617287",
+      "dateCreated": "2022-07-18T13:27:08-0400",
+      "dateStarted": "2022-07-18T13:38:28-0400",
+      "dateFinished": "2022-07-18T13:38:29-0400",
+      "status": "FINISHED",
+      "$$hashKey": "object:25133"
+    },
+    {
+      "text": "\n// Calculate the distance between pointA and pointB\n\nval dist = haversineDistance(pointA, pointB)",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-18T13:39:10-0400",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdist\u001b[0m: \u001b[1m\u001b[32mDouble\u001b[0m = 8.225800947055072\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658164731753_427387682",
+      "id": "paragraph_1658164731753_427387682",
+      "dateCreated": "2022-07-18T13:18:51-0400",
+      "dateStarted": "2022-07-18T13:39:10-0400",
+      "dateFinished": "2022-07-18T13:39:10-0400",
+      "status": "FINISHED",
+      "$$hashKey": "object:25134"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658164877025_161708093",
+      "id": "paragraph_1658164877025_161708093",
+      "dateCreated": "2022-07-18T13:21:17-0400",
+      "status": "READY",
+      "$$hashKey": "object:25135"
+    }
+  ],
+  "name": "Spark - Haversine Distance Calculation",
+  "id": "2HB3ASQ8N",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Spark - Haversine Distance Calculation"
+}
