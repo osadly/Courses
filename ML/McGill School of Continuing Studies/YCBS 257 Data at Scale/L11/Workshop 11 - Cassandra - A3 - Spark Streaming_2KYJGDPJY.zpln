@@ -1,0 +1,804 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n\n<center>\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/5/5e/Cassandra_logo.svg\" \n        alt=\"Apache Cassandra\" \n        style=\"text-align: center;  width:209px; height:140px;\"/>\n        </center>\n<h3 style=\"text-align: center;\">Apache Cassandra</h3>\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<center>\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/5/5e/Cassandra_logo.svg\" \n        alt=\"Apache Cassandra\" \n        style=\"text-align: center;  width:209px; height:140px;\"/>\n        </center>\n<h3 style=\"text-align: center;\">Apache Cassandra</h3>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102623_723627823",
+      "id": "paragraph_1730927461634_2035076464",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:8456"
+    },
+    {
+      "text": "%md\n\n## Create Cassandra target table\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Create Cassandra target table</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102634_2124397646",
+      "id": "paragraph_1679117025036_1112620209",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8457"
+    },
+    {
+      "text": "%cassandra\n# Keyspace creation if not exists \n\nCREATE KEYSPACE IF NOT EXISTS training \nWITH REPLICATION = {\n  'class' : 'SimpleStrategy',\n  'replication_factor': 1\n};",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:35:02+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\n\n\n\n\n\n<div class=\"container\">\n<div class=\"row\">\n  <h5>No Result &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n    <a role=\"button\" data-toggle=\"collapse\" data-target=\"#d3c2c22b-9089-434e-8c7d-026c349eaaf9\" aria-expanded=\"false\">\n      <span class=\"text-info\"><strong>Last query execution info</strong></span>\n    </a>\n  </h5>\n</div>\n<div class=\"panel panel-default\">\n  <div id=\"d3c2c22b-9089-434e-8c7d-026c349eaaf9\" class=\"panel-collapse collapse\" role=\"tabpanel\">\n    <div class=\"panel-body\">\n      <div class=\"row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"col-md-6 col-offset-md-3 table-responsive table-bordered\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Information</th>\n                <th style=\"text-align:left\">Value</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>Statement</td>\n                <td style=\"text-align:left\">CREATE KEYSPACE IF NOT EXISTS training \nWITH REPLICATION = {\n  'class' : 'SimpleStrategy',\n  'replication_factor': 1\n};</td>\n              </tr>\n              <tr>\n                <td>Tried Hosts</td>\n                <td style=\"text-align:left\">sandbox:9042</td>\n              </tr>\n              <tr>\n                <td>Queried Hosts</td>\n                <td style=\"text-align:left\">sandbox:9042</td>\n              </tr>\n              <tr>\n                <td>Schema in Agreement</td>\n                <td style=\"text-align:left\">true</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255270160_1547086659",
+      "id": "paragraph_1752255270160_1547086659",
+      "dateCreated": "2025-07-11T17:34:30+0000",
+      "dateStarted": "2025-07-11T17:35:02+0000",
+      "dateFinished": "2025-07-11T17:35:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8458"
+    },
+    {
+      "text": "%cassandra\n\n// We will use the training keyspace\ndesc keyspaces;\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:35:09+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\n\n<br/>\n<br/>\n<nav class=\"navbar navbar-default\">\n    <ul class=\"nav navbar-nav\">\n        \n\n<li role=\"presentation\" class=\"dropdown\">\n    <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">\n        <span class=\"text-muted\"><span class=\"glyphicon glyphicon-dashboard\"></span>&nbsp;<strong>Training</strong></span>\n        <span class=\"text-muted caret\"></span>\n        <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-header\"><span class=\"text-danger\">Keyspaces</span></li>\n                        <li>\n                <a role=\"button\" data-toggle=\"collapse\" data-target=\"#641005e0-5e7d-11f0-a51a-d7d8e5ee9402\">\n                    <span class=\"text-danger\"><span class=\"glyphicon glyphicon-folder-open\"></span>&nbsp;&nbsp;training</span>\n                </a>\n            </li>\n                        <li>\n                <a role=\"button\" data-toggle=\"collapse\" data-target=\"#6410f040-5e7d-11f0-a51a-d7d8e5ee9402\">\n                    <span class=\"text-danger\"><span class=\"glyphicon glyphicon-folder-open\"></span>&nbsp;&nbsp;tutorial</span>\n                </a>\n            </li>\n                    </ul>\n    </a>\n</li>\n\n        <li>\n            <a><strong>DESCRIBE KEYSPACES;</strong></a>\n        </li>\n    </ul>\n    <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"dropdown\">\n            <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                <strong>Legend</strong>\n                <span class=\"caret\"></span>\n            </a>\n            <ul class=\"dropdown-menu\">\n                <li>\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-dashboard text-muted\" aria-hidden=\"true\" ></span>&nbsp;Cluster\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-folder-open text-danger\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Keyspace\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-copyright-mark text-warning\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;UDT\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-th-list text-primary\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Table\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-eye-open text-primary\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Materialized View\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-random text-success\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Function\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-retweet text-success\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Aggregate\n                    </a>\n                </li>\n                <li role=\"separator\" class=\"divider text-muted\"></li>\n                <li class=\"dropdown-header\"><span class=\"text-primary\">Table icons</span></li>\n                <li class=\"bg-info\">\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-fullscreen\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Partition Key\n                    </a>\n                </li>\n                <li class=\"bg-warning\">\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-pushpin\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Static Column\n                    </a>\n                </li>\n                <li class=\"bg-success\">\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-sort\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Clustering Column\n                    </a>\n                </li>\n                <li class=\"bg-success\">\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-sort-by-attributes\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Clustering Order ASC\n                    </a>\n                </li>\n                <li class=\"bg-success\">\n                    <a href=\"#\">\n                        <span class=\"glyphicon glyphicon-sort-by-attributes-alt\" aria-hidden=\"true\" ></span>&nbsp;&nbsp;Clustering Order DESC\n                    </a>\n                </li>\n            </ul>\n        </li>\n        <li>\n            <a href=\"#\"></a>\n        </li>\n    </ul>\n</nav>\n<hr/>\n\n<div class=\"container\">\n    <!-- Cluster -->\n    \n\n<div class=\"row\">\n    <div class=\"col-md-4\"></div>\n    <div class=\"col-md-4 col-offset-md-4\">\n        <div class=\"table-responsive table-bordered\">\n            <table class=\"table\">\n                <caption>\n                    <h4 class=\"text-muted\">\n                        <span class=\"glyphicon glyphicon-dashboard\"></span>&nbsp;Training\n                    </h4>\n                </caption>\n                <thead>\n                <tr>\n                    <th style=\"text-align:left\">Partitioner</th>\n                </tr>\n                </thead>\n                <tbody>\n                <tr>\n                    <td style=\"text-align:left\">org.apache.cassandra.dht.Murmur3Partitioner</td>\n                </tr>\n                <tbody>\n            </table>\n        </div>\n    </div>\n</div>\n\n\n    <div class=\"row\"></div>\n    <!-- Keyspaces -->\n    <table width=\"100%\">\n        <td><hr /></td>\n        <td style=\"width:1px; padding: 0 10px; white-space: nowrap;\"><strong class=\"text-danger\">Keyspaces</strong></td>\n        <td><hr /></td>\n    </table>\n    <div class=\"row\">\n        <div class=\"panel-group\" role=\"tablist\" aria-multiselectable=\"true\">\n                        <div class=\"panel panel-default\">\n                <div class=\"panel-heading\" role=\"tab\">\n                    <h4 class=\"panel-title\">\n                        <a role=\"button\" data-toggle=\"collapse\" data-target=\"#641005e0-5e7d-11f0-a51a-d7d8e5ee9402\" aria-expanded=\"false\">\n                            <span class=\"text-danger\"><span class=\"glyphicon glyphicon-folder-open\"></span>&nbsp;&nbsp;training</span>\n                        </a>\n                    </h4>\n                </div>\n                <div id=\"641005e0-5e7d-11f0-a51a-d7d8e5ee9402\" class=\"panel-collapse collapse\" role=\"tabpanel\">\n                    <div class=\"panel-body\">\n                        \n\n\n<div class=\"row\">\n    <div class=\"col-md-2\"></div>\n    <div class=\"col-md-8 col-offset-md-2\">\n        <div class=\"panel panel-default table-responsive table-bordered\">\n            <table class=\"table\">\n                                <thead>\n                <tr>\n                    <th class=\"col-md-10\" style=\"text-align:left\">Replication</th>\n                    <th class=\"col-md-2\" style=\"text-align:left\">Durable Writes</th>\n                </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td class=\"col-md-10\" style=\"text-align:left\">{'class' : 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor' : '1'}</td>\n                        <td class=\"col-md-2\" style=\"text-align:left\">true</td>\n                    </tr>\n                <tbody>\n            </table>\n            <div class=\"panel-footer\">\n                <a data-toggle=\"collapse\" data-target=\"#641005e1-5e7d-11f0-a51a-d7d8e5ee9402_asCQL\" class=\"text-danger\">\n                    <strong>As CQL statement</strong>\n                    <span class=\"caret\"></span>\n                </a>\n                <br/><br/>\n                <div class=\"collapse\" id=\"641005e1-5e7d-11f0-a51a-d7d8e5ee9402_asCQL\">\n                    <pre class=\"well\">CREATE KEYSPACE training WITH replication = { \n\t'class' : 'org.apache.cassandra.locator.SimpleStrategy', \n\t'replication_factor': '1' } AND durable_writes = true;</pre>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-2\"></div>\n</div>\n                    </div>\n                </div>\n            </div>\n                        <div class=\"panel panel-default\">\n                <div class=\"panel-heading\" role=\"tab\">\n                    <h4 class=\"panel-title\">\n                        <a role=\"button\" data-toggle=\"collapse\" data-target=\"#6410f040-5e7d-11f0-a51a-d7d8e5ee9402\" aria-expanded=\"false\">\n                            <span class=\"text-danger\"><span class=\"glyphicon glyphicon-folder-open\"></span>&nbsp;&nbsp;tutorial</span>\n                        </a>\n                    </h4>\n                </div>\n                <div id=\"6410f040-5e7d-11f0-a51a-d7d8e5ee9402\" class=\"panel-collapse collapse\" role=\"tabpanel\">\n                    <div class=\"panel-body\">\n                        \n\n\n<div class=\"row\">\n    <div class=\"col-md-2\"></div>\n    <div class=\"col-md-8 col-offset-md-2\">\n        <div class=\"panel panel-default table-responsive table-bordered\">\n            <table class=\"table\">\n                                <thead>\n                <tr>\n                    <th class=\"col-md-10\" style=\"text-align:left\">Replication</th>\n                    <th class=\"col-md-2\" style=\"text-align:left\">Durable Writes</th>\n                </tr>\n                </thead>\n                <tbody>\n                    <tr>\n                        <td class=\"col-md-10\" style=\"text-align:left\">{'class' : 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor' : '1'}</td>\n                        <td class=\"col-md-2\" style=\"text-align:left\">true</td>\n                    </tr>\n                <tbody>\n            </table>\n            <div class=\"panel-footer\">\n                <a data-toggle=\"collapse\" data-target=\"#6410f041-5e7d-11f0-a51a-d7d8e5ee9402_asCQL\" class=\"text-danger\">\n                    <strong>As CQL statement</strong>\n                    <span class=\"caret\"></span>\n                </a>\n                <br/><br/>\n                <div class=\"collapse\" id=\"6410f041-5e7d-11f0-a51a-d7d8e5ee9402_asCQL\">\n                    <pre class=\"well\">CREATE KEYSPACE tutorial WITH replication = { \n\t'class' : 'org.apache.cassandra.locator.SimpleStrategy', \n\t'replication_factor': '1' } AND durable_writes = true;</pre>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-2\"></div>\n</div>\n                    </div>\n                </div>\n            </div>\n                    </div>\n    </div>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102635_866213702",
+      "id": "paragraph_1679116654402_2087546288",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "dateStarted": "2025-07-11T17:35:09+0000",
+      "dateFinished": "2025-07-11T17:35:09+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8459"
+    },
+    {
+      "text": "%cassandra\n// Create the target table\n\nCREATE TABLE training.stocks(\n    \"date\" date,\n    open double,\n    high double,\n    low double,\n    close double,\n    \"adj close\" double,\n    volume int,\n    Primary Key (\"date\"));",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:35:15+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\n\n\n\n\n\n<div class=\"container\">\n<div class=\"row\">\n  <h5>No Result &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n    <a role=\"button\" data-toggle=\"collapse\" data-target=\"#e6cd3930-46d4-4433-983f-2a512b802182\" aria-expanded=\"false\">\n      <span class=\"text-info\"><strong>Last query execution info</strong></span>\n    </a>\n  </h5>\n</div>\n<div class=\"panel panel-default\">\n  <div id=\"e6cd3930-46d4-4433-983f-2a512b802182\" class=\"panel-collapse collapse\" role=\"tabpanel\">\n    <div class=\"panel-body\">\n      <div class=\"row\">\n        <div class=\"col-md-3\"></div>\n        <div class=\"col-md-6 col-offset-md-3 table-responsive table-bordered\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Information</th>\n                <th style=\"text-align:left\">Value</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>Statement</td>\n                <td style=\"text-align:left\">CREATE TABLE training.stocks(\n    &quot;date&quot; date,\n    open double,\n    high double,\n    low double,\n    close double,\n    &quot;adj close&quot; double,\n    volume int,\n    Primary Key (&quot;date&quot;));</td>\n              </tr>\n              <tr>\n                <td>Tried Hosts</td>\n                <td style=\"text-align:left\">sandbox:9042</td>\n              </tr>\n              <tr>\n                <td>Queried Hosts</td>\n                <td style=\"text-align:left\">sandbox:9042</td>\n              </tr>\n              <tr>\n                <td>Schema in Agreement</td>\n                <td style=\"text-align:left\">true</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102639_2142815781",
+      "id": "paragraph_1679116700725_1010703266",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "dateStarted": "2025-07-11T17:35:15+0000",
+      "dateFinished": "2025-07-11T17:35:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8460"
+    },
+    {
+      "text": "%md\n\n## Load input file to HDFS\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Load input file to HDFS</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102640_1153763850",
+      "id": "paragraph_1679117049567_100702288",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8461"
+    },
+    {
+      "text": "%sh\n\n# Create input directory on HDFS\nhdfs dfs -mkdir -p /workshops/cassandra/A3/input\n\nhdfs dfs -put /home/training/Data/AMZN.csv /workshops/cassandra/A3/input",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102642_1864371632",
+      "id": "paragraph_1679116260814_1401787991",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8462"
+    },
+    {
+      "text": "%md\n\n## Stream the file using Spark Streaming",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Stream the file using Spark Streaming</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102642_695630830",
+      "id": "paragraph_1679117079864_1751467227",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8463"
+    },
+    {
+      "text": "%spark\n// Import libraries\n\nimport spark.implicits._\nimport org.apache.spark.sql.types._\nimport java.sql.Timestamp\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType}",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import spark.implicits._\nimport org.apache.spark.sql.types._\nimport java.sql.Timestamp\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType}\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102643_939138200",
+      "id": "paragraph_1679115428201_410300405",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8464"
+    },
+    {
+      "text": "%spark\n\n// Create the schema\n\nval stocksSchema = StructType.fromDDL(\n    \"`date` timestamp, open double, high double, low double, close double, `adj close` double, volume integer\")",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mstocksSchema\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.types.StructType\u001b[0m = StructType(StructField(date,TimestampType,true),StructField(open,DoubleType,true),StructField(high,DoubleType,true),StructField(low,DoubleType,true),StructField(close,DoubleType,true),StructField(adj close,DoubleType,true),StructField(volume,IntegerType,true))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102644_1707623650",
+      "id": "paragraph_1679116330360_295816706",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8465"
+    },
+    {
+      "text": "%spark\n\n// Create the case class\n\ncase class Stock(`date`: Timestamp, open: Double, high: Double, low: Double, close: Double, `adj close`: Double, volume: Double)",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "defined class Stock\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102645_2055025423",
+      "id": "paragraph_1679116417519_850107087",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8466"
+    },
+    {
+      "text": "%spark\n\n// Load the stream from the file and convert it to DataSet\n\nval stocksDS = spark.readStream\n        .format(\"csv\")\n        .option(\"header\",true)\n        .option(\"dateFormat\",\"yyyy-MM-dd\")\n        .schema(stocksSchema)\n        .load(\"/workshops/cassandra/A3/input\").as[Stock]\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mstocksDS\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[Stock]\u001b[0m = [date: timestamp, open: double ... 5 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102649_1884874921",
+      "id": "paragraph_1679116471521_1497898778",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8467"
+    },
+    {
+      "text": "%spark\n\n// write to cassandra\nval query = stocksDS\n    .writeStream\n    .outputMode(\"append\")\n    .format(\"org.apache.spark.sql.cassandra\")\n    .option(\"checkpointLocation\", \"file:///tmp/streaming/cassandra/stocks\")\n    .option(\"keyspace\", \"training\")\n    .option(\"table\", \"stocks\")\n    .start()",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mquery\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.streaming.StreamingQuery\u001b[0m = org.apache.spark.sql.execution.streaming.StreamingQueryWrapper@72b70bec\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102650_1056460396",
+      "id": "paragraph_1679117165428_860653001",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8468"
+    },
+    {
+      "text": "%spark\n\n// Run for 30 seconds\n\nquery.awaitTermination(30000)\n\nquery.stop\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 14,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102655_621675152",
+      "id": "paragraph_1679117583048_622401505",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8469"
+    },
+    {
+      "text": "%md\n\n### Read from Cassandra\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Read from Cassandra</h3>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102656_1462493414",
+      "id": "paragraph_1679118104869_1601333206",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8470"
+    },
+    {
+      "text": "%cassandra\n\nselect * from training.stocks limit 10;\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 14,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "date": "string",
+                      "\"adj close\"": "string",
+                      "close": "string",
+                      "high": "string",
+                      "low": "string",
+                      "open": "string",
+                      "volume": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "date\t\"adj close\"\tclose\thigh\tlow\topen\tvolume\n2015-12-04\t33.632\t33.632\t33.738998\t33.07\t33.299999\t90696000\n2020-09-18\t147.745499\t147.745499\t151.889999\t145.276993\t151.587006\t177852000\n2016-11-23\t39.006001\t39.006001\t39.087502\t38.655998\t39.086498\t70806000\n2020-05-20\t124.897003\t124.897003\t125.000504\t123.363503\t123.893501\t79962000\n2018-02-05\t69.5\t69.5\t72.948997\t66.036003\t70.130997\t229900000\n2015-12-28\t33.759998\t33.759998\t33.775002\t33.275002\t33.278\t75672000\n2018-04-23\t75.892998\t75.892998\t77.400002\t75.170502\t77.334503\t89308000\n2019-04-23\t96.188499\t96.188499\t96.462997\t94.478996\t94.559998\t92808000\n2019-09-17\t91.127502\t91.127502\t91.199501\t90.205002\t90.353996\t39648000\n2017-01-23\t40.894001\t40.894001\t40.924999\t40.254002\t40.34\t55950000\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102657_741888339",
+      "id": "paragraph_1679118102698_998572291",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8471"
+    },
+    {
+      "text": "%cassandra\n\nselect * from training.stocks where \"date\" = '2020-12-01';\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 14,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "date": "string",
+                      "\"adj close\"": "string",
+                      "close": "string",
+                      "high": "string",
+                      "low": "string",
+                      "open": "string",
+                      "volume": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "date\t\"adj close\"\tclose\thigh\tlow\topen\tvolume\n2020-12-01\t161.003998\t161.003998\t162.447495\t157.858994\t159.425003\t90740000\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102664_1436709178",
+      "id": "paragraph_1679117715216_802425510",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8472"
+    },
+    {
+      "text": "%cassandra\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:42+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255102664_517150241",
+      "id": "paragraph_1679118272260_1609956705",
+      "dateCreated": "2025-07-11T17:31:42+0000",
+      "status": "READY",
+      "$$hashKey": "object:8473"
+    }
+  ],
+  "name": "Workshop 11 - Cassandra - A3 - Spark Streaming",
+  "id": "2KYJGDPJY",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.11.2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Workshop 11 - Cassandra - A3 - Spark Streaming"
+}

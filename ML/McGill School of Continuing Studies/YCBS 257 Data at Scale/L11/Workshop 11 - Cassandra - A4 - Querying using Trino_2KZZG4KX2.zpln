@@ -1,0 +1,436 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n\n<center>\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/5/5e/Cassandra_logo.svg\" \n        alt=\"Apache Cassandra\" \n        style=\"text-align: center;  width:209px; height:140px;\"/>\n        </center>\n<h3 style=\"text-align: center;\">Apache Cassandra</h3>\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:51+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<center>\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/5/5e/Cassandra_logo.svg\" \n        alt=\"Apache Cassandra\" \n        style=\"text-align: center;  width:209px; height:140px;\"/>\n        </center>\n<h3 style=\"text-align: center;\">Apache Cassandra</h3>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255111205_1283500018",
+      "id": "paragraph_1730927514542_1517917446",
+      "dateCreated": "2025-07-11T17:31:51+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:3859"
+    },
+    {
+      "text": "%trino\n\nshow catalogs;",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:40:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 14,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Catalog": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Catalog\nblackhole\ncassandra\nhive\nmemory\nmonitor\nmysql\nphoenix\nsystem\ntpcds\ntpch\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255111206_1771515084",
+      "id": "paragraph_1679141880041_1986177095",
+      "dateCreated": "2025-07-11T17:31:51+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:3860",
+      "dateFinished": "2025-07-11T17:40:54+0000",
+      "dateStarted": "2025-07-11T17:40:48+0000"
+    },
+    {
+      "text": "%trino\n\nshow schemas in cassandra;\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:40:59+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 14,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Schema": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Schema\ninformation_schema\nsystem\nsystem_auth\nsystem_distributed\nsystem_schema\nsystem_traces\nsystem_views\nsystem_virtual_schema\ntraining\ntutorial\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255111207_983721534",
+      "id": "paragraph_1679141892078_679478605",
+      "dateCreated": "2025-07-11T17:31:51+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:3861",
+      "dateFinished": "2025-07-11T17:41:06+0000",
+      "dateStarted": "2025-07-11T17:40:59+0000"
+    },
+    {
+      "text": "%trino\n\nshow tables from cassandra.training;",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 14,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Table": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Table\nsales\nstocks\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255111208_51739967",
+      "id": "paragraph_1679142970975_1751974949",
+      "dateCreated": "2025-07-11T17:31:51+0000",
+      "status": "READY",
+      "$$hashKey": "object:3862"
+    },
+    {
+      "text": "%trino\n\nselect * from cassandra.training.stocks limit 10;",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 14,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "date": "string",
+                      "adj close": "string",
+                      "close": "string",
+                      "high": "string",
+                      "low": "string",
+                      "open": "string",
+                      "volume": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "date\tadj close\tclose\thigh\tlow\topen\tvolume\n2017-12-08\t58.099998\t58.099998\t58.6395\t57.855\t58.52\t61002000\n2020-03-10\t94.591003\t94.591003\t94.713501\t90.908501\t93.543999\t142666000\n2022-03-01\t151.141998\t151.141998\t154.098999\t149.977005\t152.732498\t44874000\n2016-03-17\t27.972\t27.972\t28.57\t27.7505\t28.4755\t118562000\n2022-08-08\t139.410004\t139.410004\t144.229996\t138.289993\t142.050003\t52229000\n2017-12-04\t56.697498\t56.697498\t58.759998\t56.400002\t58.692501\t118638000\n2020-02-24\t100.4645\t100.4645\t101.964996\t99.398499\t100.158997\t130940000\n2016-06-28\t35.397499\t35.397499\t35.400002\t34.908501\t35.0\t80740000\n2019-06-27\t95.213997\t95.213997\t95.561996\t94.902\t95.099998\t42834000\n2022-08-18\t142.300003\t142.300003\t142.770004\t140.380005\t141.320007\t37458700\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255111210_1963495417",
+      "id": "paragraph_1679544980017_1993171998",
+      "dateCreated": "2025-07-11T17:31:51+0000",
+      "status": "READY",
+      "$$hashKey": "object:3863"
+    },
+    {
+      "text": "%trino\n\nselect max(open) max from cassandra.training.stocks;",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 14,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "max": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "max\n187.199997\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255111212_1823568885",
+      "id": "paragraph_1679545055260_1660498343",
+      "dateCreated": "2025-07-11T17:31:51+0000",
+      "status": "READY",
+      "$$hashKey": "object:3864"
+    },
+    {
+      "text": "%trino\n",
+      "user": "anonymous",
+      "dateUpdated": "2025-07-11T17:31:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1752255111213_424287404",
+      "id": "paragraph_1679545834755_1271709510",
+      "dateCreated": "2025-07-11T17:31:51+0000",
+      "status": "READY",
+      "$$hashKey": "object:3865"
+    }
+  ],
+  "name": "Workshop 11 - Cassandra - A4 - Querying using Trino",
+  "id": "2KZZG4KX2",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.11.2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Workshop 11 - Cassandra - A4 - Querying using Trino"
+}
