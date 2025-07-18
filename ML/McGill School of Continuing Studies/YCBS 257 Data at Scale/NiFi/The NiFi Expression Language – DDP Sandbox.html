@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://localhost/the-nifi-expression-language/ -->
+<html class="avada-html-layout-wide avada-html-header-position-top avada-is-100-percent-template ua-windows_nt ua-windows_nt-10 ua-windows_nt-10-0 ua-chrome ua-chrome-137 ua-chrome-137-0 ua-chrome-137-0-0 ua-chrome-137-0-0-0 ua-desktop ua-desktop-windows ua-webkit ua-webkit-537 ua-webkit-537-36 js touchevents no-applicationcache audio audio-ogg audio-mp3 audio-opus audio-wav audio-m4a canvas canvastext hashchange geolocation history inputtypes-search inputtypes-tel inputtypes-url inputtypes-email no-inputtypes-datetime inputtypes-date inputtypes-month inputtypes-week inputtypes-time inputtypes-datetime-local inputtypes-number inputtypes-range inputtypes-color postmessage postmessage-structuredclones video no-video-ogg video-h264 no-video-h265 video-webm video-vp9 no-video-hls no-video-av1 webgl websockets cssanimations backgroundsize borderimage borderradius boxshadow flexbox fontface generatedcontent cssgradients hsla multiplebgs opacity cssreflections rgba textshadow csstransforms supports csstransforms3d csstransitions localstorage sessionstorage no-websqldatabase svgclippaths inlinesvg smil webworkers" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" data-useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The NiFi Expression Language – DDP Sandbox</title>
+<meta name="robots" content="max-image-preview:large">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel="alternate" type="application/rss+xml" title="DDP Sandbox » Feed" href="http://localhost/feed/">
+<link rel="alternate" type="application/rss+xml" title="DDP Sandbox » Comments Feed" href="http://localhost/comments/feed/">
+					<link rel="shortcut icon" href="http://localhost/wp-content/uploads/2023/07/favicon.ico" type="image/x-icon">
+		
+		
+		
+									<meta name="description" content="Introduction 
+
+In today’s data-driven world, managing and automating data flows efficiently is critical. Apache NiFi simplifies this process with its intuitive visual interface and powerful processors, but what truly unlocks its potential is the NiFi Expression Language (NFL). This language acts as the &quot;glue&quot; that connects static workflows to dynamic, intelligent data pipelines,">
+				
+		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="DDP Sandbox">
+		<meta property="og:title" content="  The NiFi Expression Language">
+				<meta property="og:description" content="Introduction 
+
+In today’s data-driven world, managing and automating data flows efficiently is critical. Apache NiFi simplifies this process with its intuitive visual interface and powerful processors, but what truly unlocks its potential is the NiFi Expression Language (NFL). This language acts as the &quot;glue&quot; that connects static workflows to dynamic, intelligent data pipelines,">
+				<meta property="og:url" content="http://localhost/the-nifi-expression-language/">
+										<meta property="article:published_time" content="2025-04-02T19:22:56+00:00">
+							<meta property="article:modified_time" content="2025-04-03T11:06:29+00:00">
+								<meta name="author" content="Training">
+								<meta property="og:image" content="http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920.jpg">
+		<meta property="og:image:width" content="1920">
+		<meta property="og:image:height" content="1080">
+		<meta property="og:image:type" content="image/jpeg">
+				<link rel="stylesheet" id="child-style-css" href="./The NiFi Expression Language – DDP Sandbox_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="fusion-dynamic-css-css" href="./The NiFi Expression Language – DDP Sandbox_files/d3fac83b5c9783c42b7390200fd2caa5.min.css" type="text/css" media="all">
+<script type="text/javascript" src="./The NiFi Expression Language – DDP Sandbox_files/jquery.min.js.download" id="jquery-core-js"></script>
+<link rel="https://api.w.org/" href="http://localhost/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="http://localhost/wp-json/wp/v2/posts/6323"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.8.1">
+<link rel="canonical" href="http://localhost/the-nifi-expression-language/">
+<link rel="shortlink" href="http://localhost/?p=6323">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="http://localhost/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fthe-nifi-expression-language%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="http://localhost/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fthe-nifi-expression-language%2F&amp;format=xml">
+<link rel="preload" href="http://localhost/wp-content/themes/Avada/includes/lib/assets/fonts/icomoon/awb-icons.woff" as="font" type="font/woff" crossorigin=""><link rel="preload" href="http://localhost/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin=""><link rel="preload" href="http://localhost/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin=""><link rel="preload" href="http://localhost/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin=""><link rel="preload" href="http://localhost/wp-content/uploads/fusion-icons/avada-handyman-v1.0/fonts/avada-handyman.ttf?g21dbk" as="font" type="font/ttf" crossorigin=""><style type="text/css" id="css-fb-visibility">@media screen and (max-width: 640px){.fusion-no-small-visibility{display:none !important;}body .sm-text-align-center{text-align:center !important;}body .sm-text-align-left{text-align:left !important;}body .sm-text-align-right{text-align:right !important;}body .sm-flex-align-center{justify-content:center !important;}body .sm-flex-align-flex-start{justify-content:flex-start !important;}body .sm-flex-align-flex-end{justify-content:flex-end !important;}body .sm-mx-auto{margin-left:auto !important;margin-right:auto !important;}body .sm-ml-auto{margin-left:auto !important;}body .sm-mr-auto{margin-right:auto !important;}body .fusion-absolute-position-small{position:absolute;top:auto;width:100%;}.awb-sticky.awb-sticky-small{ position: sticky; top: var(--awb-sticky-offset,0); }}@media screen and (min-width: 641px) and (max-width: 1024px){.fusion-no-medium-visibility{display:none !important;}body .md-text-align-center{text-align:center !important;}body .md-text-align-left{text-align:left !important;}body .md-text-align-right{text-align:right !important;}body .md-flex-align-center{justify-content:center !important;}body .md-flex-align-flex-start{justify-content:flex-start !important;}body .md-flex-align-flex-end{justify-content:flex-end !important;}body .md-mx-auto{margin-left:auto !important;margin-right:auto !important;}body .md-ml-auto{margin-left:auto !important;}body .md-mr-auto{margin-right:auto !important;}body .fusion-absolute-position-medium{position:absolute;top:auto;width:100%;}.awb-sticky.awb-sticky-medium{ position: sticky; top: var(--awb-sticky-offset,0); }}@media screen and (min-width: 1025px){.fusion-no-large-visibility{display:none !important;}body .lg-text-align-center{text-align:center !important;}body .lg-text-align-left{text-align:left !important;}body .lg-text-align-right{text-align:right !important;}body .lg-flex-align-center{justify-content:center !important;}body .lg-flex-align-flex-start{justify-content:flex-start !important;}body .lg-flex-align-flex-end{justify-content:flex-end !important;}body .lg-mx-auto{margin-left:auto !important;margin-right:auto !important;}body .lg-ml-auto{margin-left:auto !important;}body .lg-mr-auto{margin-right:auto !important;}body .fusion-absolute-position-large{position:absolute;top:auto;width:100%;}.awb-sticky.awb-sticky-large{ position: sticky; top: var(--awb-sticky-offset,0); }}</style><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>		<script type="text/javascript">
+			var doc = document.documentElement;
+			doc.setAttribute( 'data-useragent', navigator.userAgent );
+		</script>
+		
+	<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="wp-singular post-template-default single single-post postid-6323 single-format-standard wp-theme-Avada wp-child-theme-Avada-Child-Theme fusion-image-hovers fusion-pagination-sizing fusion-button_type-flat fusion-button_span-no fusion-button_gradient-linear avada-image-rollover-circle-yes avada-image-rollover-no fusion-body ltr fusion-sticky-header no-tablet-sticky-header no-mobile-sticky-header no-mobile-slidingbar no-mobile-totop fusion-disable-outline fusion-sub-menu-fade mobile-logo-pos-left layout-wide-mode avada-has-boxed-modal-shadow- layout-scroll-offset-full avada-has-zero-margin-offset-top fusion-top-header menu-text-align-center mobile-menu-design-classic fusion-show-pagination-text fusion-header-layout-v3 avada-responsive avada-footer-fx-none avada-menu-highlight-style-bar fusion-search-form-clean fusion-main-menu-search-overlay fusion-avatar-circle avada-dropdown-styles avada-blog-layout-large avada-blog-archive-layout-large avada-header-shadow-no avada-menu-icon-position-left avada-has-megamenu-shadow avada-has-mobile-menu-search avada-has-breadcrumb-mobile-hidden avada-has-titlebar-hide avada-header-border-color-full-transparent avada-has-transparent-timeline_color avada-has-pagination-width_height avada-flyout-menu-direction-fade avada-ec-views-v1 do-animate fusion-no-touch" data-awb-post-id="6323" style="--viewportWidth: 1356; --awb-scrollbar-width: 12px;">
+		<a class="skip-link screen-reader-text" href="http://localhost/the-nifi-expression-language/#content">Skip to content</a>
+
+	<div id="boxed-wrapper">
+		
+		<div id="wrapper" class="fusion-wrapper">
+			<div id="home" style="position:relative;top:-1px;"></div>
+												<div class="fusion-tb-header"><div class="fusion-fullwidth fullwidth-box fusion-builder-row-1 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling fusion-custom-z-index" style="--link_hover_color: var(--awb-color4);--link_color: var(--awb-color7);--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-z-index:9999;--awb-padding-top:0px;--awb-padding-right:30px;--awb-padding-bottom:0px;--awb-padding-left:30px;--awb-padding-right-small:20px;--awb-padding-left-small:20px;--awb-margin-top:0px;--awb-margin-bottom:0px;--awb-background-color:var(--awb-color8);--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-stretch fusion-flex-content-wrap" style="max-width:1248px;margin-left: calc(-4% / 2 );margin-right: calc(-4% / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-0 fusion_builder_column_1_4 1_4 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:25%;--awb-margin-top-large:0px;--awb-spacing-right-large:7.68%;--awb-margin-bottom-large:0px;--awb-spacing-left-large:7.68%;--awb-width-medium:25%;--awb-order-medium:0;--awb-spacing-right-medium:7.68%;--awb-spacing-left-medium:7.68%;--awb-width-small:50%;--awb-order-small:0;--awb-spacing-right-small:3.84%;--awb-spacing-left-small:3.84%;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-center fusion-content-layout-column"></div></div><div class="fusion-layout-column fusion_builder_column fusion-builder-column-1 fusion_builder_column_3_4 3_4 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:75%;--awb-margin-top-large:0px;--awb-spacing-right-large:2.56%;--awb-margin-bottom-large:0px;--awb-spacing-left-large:2.56%;--awb-width-medium:75%;--awb-order-medium:0;--awb-spacing-right-medium:2.56%;--awb-spacing-left-medium:2.56%;--awb-width-small:50%;--awb-order-small:0;--awb-spacing-right-small:3.84%;--awb-spacing-left-small:3.84%;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><nav class="awb-menu awb-menu_row awb-menu_em-hover mobile-mode-collapse-to-button awb-menu_icons-left awb-menu_dc-yes mobile-trigger-fullwidth-off awb-menu_mobile-toggle awb-menu_indent-left mobile-size-full-absolute mega-menu-loading awb-menu_desktop awb-menu_dropdown awb-menu_expand-right awb-menu_transition-fade" style="--awb-font-size:12px;--awb-text-transform:none;--awb-min-height:35px;--awb-justify-content:flex-end;--awb-items-padding-top:0px;--awb-items-padding-right:25px;--awb-items-padding-bottom:0px;--awb-items-padding-left:25px;--awb-border-color:var(--awb-custom_color_2);--awb-border-right:1px;--awb-border-left:1px;--awb-color:var(--awb-custom_color_2);--awb-active-color:var(--awb-color4);--awb-active-bg:#4a4e57;--awb-active-border-top:1px;--awb-active-border-right:1px;--awb-active-border-bottom:1px;--awb-active-border-left:1px;--awb-submenu-color:var(--awb-color7);--awb-submenu-bg:var(--awb-color1);--awb-submenu-sep-color:var(--awb-color3);--awb-submenu-text-transform:none;--awb-icons-color:var(--awb-custom_color_2);--awb-main-justify-content:flex-start;--awb-mobile-nav-button-align-hor:flex-end;--awb-mobile-nav-items-height:54;--awb-mobile-trigger-font-size:16px;--awb-mobile-trigger-color:var(--awb-color8);--awb-mobile-trigger-background-color:var(--awb-color1);--awb-justify-title:flex-start;--awb-mobile-justify:flex-start;--awb-mobile-caret-left:auto;--awb-mobile-caret-right:0;--awb-fusion-font-family-typography:inherit;--awb-fusion-font-style-typography:normal;--awb-fusion-font-weight-typography:400;--awb-fusion-font-family-submenu-typography:inherit;--awb-fusion-font-style-submenu-typography:normal;--awb-fusion-font-weight-submenu-typography:400;--awb-fusion-font-family-mobile-typography:inherit;--awb-fusion-font-style-mobile-typography:normal;--awb-fusion-font-weight-mobile-typography:400;" aria-label="DDP Top Menu" data-breakpoint="1024" data-count="0" data-transition-type="fade" data-transition-time="300" data-expand="right"><button type="button" class="awb-menu__m-toggle awb-menu__m-toggle_no-text" aria-expanded="false" aria-controls="menu-ddp-top-menu"><span class="awb-menu__m-toggle-inner"><span class="collapsed-nav-text"><span class="screen-reader-text">Toggle Navigation</span></span><span class="awb-menu__m-collapse-icon awb-menu__m-collapse-icon_no-text"><span class="awb-menu__m-collapse-icon-open awb-menu__m-collapse-icon-open_no-text fa-book-open fas"></span><span class="awb-menu__m-collapse-icon-close awb-menu__m-collapse-icon-close_no-text fa-times fas"></span></span></span></button><ul id="menu-ddp-top-menu" class="fusion-menu awb-menu__main-ul awb-menu__main-ul_row"><li id="menu-item-3264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3264 awb-menu__li awb-menu__main-li awb-menu__main-li_regular" data-item-id="3264"><span class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span><span class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span><a href="http://localhost/instructors/" class="awb-menu__main-a awb-menu__main-a_regular"><span class="menu-text">Instructors</span></a></li><li id="menu-item-4280" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4280 awb-menu__li awb-menu__main-li awb-menu__main-li_regular" data-item-id="4280"><span class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span><span class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span><a href="http://localhost/sandbox-evaluation-survey/" class="awb-menu__main-a awb-menu__main-a_regular"><span class="menu-text">Evaluation Survey</span></a></li><li id="menu-item-4708" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4708 awb-menu__li awb-menu__main-li awb-menu__main-li_regular" data-item-id="4708"><span class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span><span class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span><a href="http://localhost/contact-us/" class="awb-menu__main-a awb-menu__main-a_regular"><span class="menu-text">Contact Us</span></a></li><li id="menu-item-2921" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2921 awb-menu__li awb-menu__main-li awb-menu__main-li_regular" data-item-id="2921"><span class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span><span class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span><a href="http://localhost/about-the-sandbox/" class="awb-menu__main-a awb-menu__main-a_regular"><span class="menu-text">About The Sandbox</span></a></li></ul></nav></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-2 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling fusion-custom-z-index" style="--awb-background-position:center bottom;--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-z-index:9999;--awb-padding-top:40px;--awb-padding-bottom:45px;--awb-background-color:var(--awb-color1);--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-2 fusion-flex-column fusion-animated" style="--awb-bg-size: cover; --awb-width-large: 30%; --awb-margin-top-large: 0px; --awb-spacing-right-large: 40px; --awb-margin-bottom-large: 0px; --awb-spacing-left-large: 40px; --awb-width-medium: 30%; --awb-order-medium: 0; --awb-spacing-right-medium: 40px; --awb-spacing-left-medium: 40px; --awb-width-small: 50%; --awb-order-small: 0; --awb-spacing-right-small: 0px; --awb-margin-bottom-small: 0px; --awb-spacing-left-small: 40px; visibility: visible; animation-duration: 1.3s;" data-animationtype="fadeIn" data-animationduration="1.3" data-animationoffset="top-into-view"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-center fusion-content-layout-column"><div class="fusion-image-element sm-text-align-left" style="--awb-max-width:231px;--awb-caption-title-font-family:var(--h2_typography-font-family);--awb-caption-title-font-weight:var(--h2_typography-font-weight);--awb-caption-title-font-style:var(--h2_typography-font-style);--awb-caption-title-size:var(--h2_typography-font-size);--awb-caption-title-transform:var(--h2_typography-text-transform);--awb-caption-title-line-height:var(--h2_typography-line-height);--awb-caption-title-letter-spacing:var(--h2_typography-letter-spacing);"><span class=" fusion-imageframe imageframe-none imageframe-1 hover-type-none"><a class="fusion-no-lightbox" href="http://localhost/" target="_self" aria-label="dataxper-logo-invoice-bg-transp"><img decoding="async" width="247" height="96" src="./The NiFi Expression Language – DDP Sandbox_files/dataxper-logo-invoice-bg-transp.png" data-orig-src="http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp.png" alt="" class="img-responsive wp-image-1730 lazyautosizes lazyloaded" srcset="http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp-200x78.png 200w, http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp.png 247w" data-srcset="http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp-200x78.png 200w, http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp.png 247w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 247px" sizes="231px"></a></span></div></div></div><div class="fusion-layout-column fusion_builder_column fusion-builder-column-3 fusion-flex-column fusion-animated" style="--awb-bg-size: cover; --awb-width-large: 70%; --awb-margin-top-large: 0px; --awb-spacing-right-large: 40px; --awb-margin-bottom-large: 0px; --awb-spacing-left-large: 40px; --awb-width-medium: 70%; --awb-order-medium: 1; --awb-spacing-right-medium: 40px; --awb-spacing-left-medium: 40px; --awb-width-small: 50%; --awb-order-small: 1; --awb-spacing-right-small: 40px; --awb-margin-bottom-small: 0px; --awb-spacing-left-small: 0px; visibility: visible; animation-duration: 1.3s;" data-animationtype="fadeIn" data-animationduration="1.3" data-animationoffset="top-into-view" data-scroll-devices="small-visibility,medium-visibility,large-visibility"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-center fusion-content-layout-column"><nav class="awb-menu awb-menu_row awb-menu_em-hover mobile-mode-collapse-to-button awb-menu_icons-left awb-menu_dc-yes mobile-trigger-fullwidth-off awb-menu_mobile-toggle awb-menu_indent-left mobile-size-full-absolute mega-menu-loading awb-menu_desktop awb-menu_dropdown awb-menu_expand-right awb-menu_transition-opacity" style="--awb-font-size:17px;--awb-text-transform:none;--awb-min-height:50px;--awb-gap:42px;--awb-justify-content:flex-end;--awb-border-bottom:0px;--awb-color:var(--awb-color8);--awb-active-color:var(--awb-color1);--awb-active-border-bottom:0px;--awb-active-border-color:var(--awb-color8);--awb-submenu-color:var(--awb-color8);--awb-submenu-bg:var(--awb-color1);--awb-submenu-sep-color:rgba(0,0,0,0);--awb-submenu-border-radius-top-left:6px;--awb-submenu-border-radius-top-right:6px;--awb-submenu-border-radius-bottom-right:6px;--awb-submenu-border-radius-bottom-left:6px;--awb-submenu-active-bg:hsla(var(--awb-color8-h),var(--awb-color8-s),calc( var(--awb-color8-l) + 96% ),var(--awb-color8-a));--awb-submenu-active-color:var(--awb-color8);--awb-submenu-font-size:13px;--awb-submenu-text-transform:none;--awb-icons-color:var(--awb-color8);--awb-icons-hover-color:var(--awb-color7);--awb-main-justify-content:flex-start;--awb-mobile-nav-button-align-hor:flex-end;--awb-mobile-bg:var(--awb-color1);--awb-mobile-color:var(--awb-color8);--awb-mobile-nav-items-height:55;--awb-mobile-active-color:var(--awb-color8);--awb-mobile-trigger-font-size:20px;--awb-trigger-padding-top:6px;--awb-trigger-padding-right:0px;--awb-trigger-padding-bottom:6px;--awb-mobile-trigger-color:var(--awb-color8);--awb-mobile-trigger-background-color:rgba(255,255,255,0);--awb-mobile-nav-trigger-bottom-margin:20px;--awb-mobile-sep-color:var(--awb-color1);--awb-flyout-close-color:var(--awb-color7);--awb-flyout-active-close-color:var(--awb-color7);--awb-mobile-justify:flex-start;--awb-mobile-caret-left:auto;--awb-mobile-caret-right:0;--awb-box-shadow:0px 3px 10px 0px hsla(var(--awb-color8-h),var(--awb-color8-s),var(--awb-color8-l),calc( var(--awb-color8-a) - 97% ));;--awb-fusion-font-family-typography:inherit;--awb-fusion-font-style-typography:normal;--awb-fusion-font-weight-typography:400;--awb-fusion-font-family-submenu-typography:inherit;--awb-fusion-font-style-submenu-typography:normal;--awb-fusion-font-weight-submenu-typography:400;--awb-fusion-font-family-mobile-typography:inherit;--awb-fusion-font-style-mobile-typography:normal;--awb-fusion-font-weight-mobile-typography:400;" aria-label="Sandbox Main Menu" data-breakpoint="840" data-count="1" data-transition-type="center" data-transition-time="300" data-expand="right"><button type="button" class="awb-menu__m-toggle" aria-expanded="false" aria-controls="menu-sandbox-main-menu"><span class="awb-menu__m-toggle-inner"><span class="collapsed-nav-text">Go to...</span><span class="awb-menu__m-collapse-icon"><span class="awb-menu__m-collapse-icon-open fa-bars fas"></span><span class="awb-menu__m-collapse-icon-close fa-times fas"></span></span></span></button><ul id="menu-sandbox-main-menu" class="fusion-menu awb-menu__main-ul awb-menu__main-ul_row"><li id="menu-item-2396" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2396 awb-menu__li awb-menu__main-li awb-menu__li_button" data-item-id="2396"><a href="http://localhost/" class="awb-menu__main-a awb-menu__main-a_button"><span class="menu-text fusion-button button-default button-medium">Home</span></a></li><li id="menu-item-1837" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1837 awb-menu__li awb-menu__main-li awb-menu__li_button" data-item-id="1837"><a href="http://localhost/quick-links/" class="awb-menu__main-a awb-menu__main-a_button"><span class="menu-text fusion-button button-default button-medium">Quick Links</span></a></li><li id="menu-item-1836" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1836 awb-menu__li awb-menu__main-li awb-menu__li_button" data-item-id="1836"><a href="http://localhost/tutorials/" class="awb-menu__main-a awb-menu__main-a_button"><span class="menu-text fusion-button button-default button-medium">Tutorials</span></a></li><li id="menu-item-2404" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2404 awb-menu__li awb-menu__main-li awb-menu__li_button" data-item-id="2404"><a href="http://localhost/guides" class="awb-menu__main-a awb-menu__main-a_button"><span class="menu-text fusion-button button-default button-medium">Guides</span></a></li><li id="menu-item-5448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5448 awb-menu__li awb-menu__main-li awb-menu__li_button" data-item-id="5448"><a href="http://localhost/quizzes/" class="awb-menu__main-a awb-menu__main-a_button"><span class="menu-text fusion-button button-default button-medium">Quizzes</span></a></li><li id="menu-item-2400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2400 awb-menu__li awb-menu__main-li awb-menu__li_button" data-item-id="2400"><a href="http://localhost/frequenty-asked-questions/" class="awb-menu__main-a awb-menu__main-a_button"><span class="menu-text fusion-button button-default button-medium">FAQ</span></a></li></ul></nav></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-3 fusion-flex-container has-pattern-background has-mask-background hundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-background-position:center bottom;--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-padding-top:-2px;--awb-padding-bottom:-2px;--awb-margin-bottom:-120px;--awb-background-color:var(--awb-color4);--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="width:calc( 100% + 80px ) !important;max-width:calc( 100% + 80px ) !important;margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-4 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:-2px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:3;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:3;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;" data-scroll-devices="small-visibility,medium-visibility,large-visibility"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-section-separator section-separator paper fusion-section-separator-1" style="--awb-spacer-height:30px;--awb-divider-height:30px;--awb-spacer-padding-top:inherit;--awb-bg-size:100% 30px;--awb-bg-size-medium:100% 100%;--awb-bg-size-small:100% 100%;"><div class="fusion-section-separator-svg fusion-section-separator-fullwidth"><div class="fusion-paper-candy-sep fusion-section-separator-svg-bg" style="background-image:url( data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%22100%25%22%20viewBox%3D%220%200%201667%20102%22%20preserveAspectRatio%3D%22none%22%20fill%3D%22rgba%28255%2C255%2C255%2C1%29%22%3E%3Cpath%20d%3D%22M0%20102V18L14%2023H34L43%2028H70L83%2023L88%2018L110%2023L165%2038C169.13%2036.9132%20174.712%2035.4721%20180.5%2034.0232C184.719%2032.9671%20190.047%2035.9301%20194%2035C201.258%2033.2924%20206.255%2028%20208%2028C209.361%2028%20213.031%2030.7641%20215.5%2029.5C216.777%2028.8461%20216.634%2024.4684%20218%2023.652C221.756%2021.407%20227.081%2029.2742%20229.5%2027.5L240.5%2020.625H249.5L256%2017.4737L267%2014L278%2025L280.5%2031.652L287%2029.5L291.5%2035.5L298%2038L304%2035.5L314%2038L325%2037L329.5%2038H336L348%2035.5L354%2028H365L370.5%2020.5L382.5%2020.875L389.5%2017L402%2020.875L409.5%2017L424.5%2018.5L435.5%2017L451%2018.5L463%2017L471.5%2023L478.5%2020.875L487%2024.5L498.5%2025.5L505%2028H510C510.958%2029.5968%20510.605%2033.4726%20512.5%2035.5C514.561%2037.7047%20518.916%2038%20521%2038H530L585%2028L616%2017L632%2010L651.5%2013.5L668.5%2021.7L676.5%2018.1L686%2023.5L694.5%2021.7L705.5%2027.5L717%2026.2L727%2030.6786H733.5L744%2037.5L754%2038L786%2028H814L868%2017L887%2019.1111L898%2023L910%2021.6667L917%2024L927%2022.3333L933%2024L943.5%2020.1957L956.5%2021L964%2017.5217L968%2017L980%2010H1005L1015%2017H1052L1110%2010L1132%200L1141%201.8L1156.5%208L1165.5%206.7L1180.5%2011.625H1188.75L1195.5%2014.6944H1201.5L1209.5%2018L1221%2019.3889L1235%2027L1268%2038L1311%2028L1316%2023L1338%2017L1354%2028L1364%2038L1392%2028.6667L1404.5%2030L1409%2023H1419.5L1427%2017L1437%2020L1445%2028.6667L1456%2023L1470.5%2028.6667L1497.5%2017L1505%2010L1514%2013L1522%2010L1530.5%2012L1536%205L1543.5%208.05L1553%205.40854L1563%2010L1567%200L1584%208.05L1594%206.55L1604.5%202L1614.5%204.75L1631%2011.5L1647.5%208.05L1667%2018V102H0Z%22%20fill%3D%22var%28--awb-color1%29%22%2F%3E%3C%2Fsvg%3E );transform: rotateX(180deg);"></div></div><div class="fusion-section-separator-spacer fusion-section-separator-fullwidth"><div class="fusion-section-separator-spacer-height"></div></div></div></div></div><div class="fusion-layout-column fusion_builder_column fusion-builder-column-5 fusion_builder_column_1_1 1_1 fusion-flex-column menu-underlay fusion-animated" style="--awb-padding-top: 70px; --awb-padding-bottom: 147px; --awb-padding-top-small: 50px; --awb-padding-bottom-small: 165px; --awb-bg-color: var(--awb-color4); --awb-bg-color-hover: var(--awb-color4); --awb-bg-size: cover; --awb-border-color: hsla(var(--awb-color8-h),var(--awb-color8-s),var(--awb-color8-l),calc( var(--awb-color8-a) - 83% )); --awb-border-top: 0; --awb-border-style: solid; --awb-width-large: 100%; --awb-margin-top-large: -2px; --awb-spacing-right-large: 40px; --awb-margin-bottom-large: 0px; --awb-spacing-left-large: 40px; --awb-width-medium: 100%; --awb-order-medium: 2; --awb-spacing-right-medium: 40px; --awb-spacing-left-medium: 40px; --awb-width-small: 100%; --awb-order-small: 2; --awb-spacing-right-small: 40px; --awb-spacing-left-small: 40px; visibility: visible; animation-duration: 1s;" data-animationtype="fadeIn" data-animationduration="1.0" data-animationoffset="top-into-view" data-scroll-devices="small-visibility,medium-visibility,large-visibility"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-1 fusion-sep-none fusion-title-center fusion-title-text fusion-title-size-one" style="--awb-text-color:var(--awb-color8);--awb-margin-top:-5px;--awb-font-size:54px;"><h1 class="fusion-title-heading title-heading-center" style="margin:0;font-size:1em;letter-spacing:-1px;text-transform:capitalize;">The NiFi Expression Language</h1></div></div></div><div class="fusion-layout-column fusion_builder_column fusion-builder-column-6 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:-2px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:0px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:3;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:3;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;" data-scroll-devices="small-visibility,medium-visibility,large-visibility"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-section-separator section-separator paper fusion-section-separator-2" style="--awb-spacer-height:30px;--awb-divider-height:30px;--awb-spacer-padding-top:inherit;--awb-bg-size:100% 30px;--awb-bg-size-medium:100% 100%;--awb-bg-size-small:100% 100%;"><div class="fusion-section-separator-svg fusion-section-separator-fullwidth"><div class="fusion-paper-candy-sep fusion-section-separator-svg-bg" style="background-image:url( data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%22100%25%22%20viewBox%3D%220%200%201667%20102%22%20preserveAspectRatio%3D%22none%22%20fill%3D%22rgba%28255%2C255%2C255%2C1%29%22%3E%3Cpath%20d%3D%22M0%20102V18L14%2023H34L43%2028H70L83%2023L88%2018L110%2023L165%2038C169.13%2036.9132%20174.712%2035.4721%20180.5%2034.0232C184.719%2032.9671%20190.047%2035.9301%20194%2035C201.258%2033.2924%20206.255%2028%20208%2028C209.361%2028%20213.031%2030.7641%20215.5%2029.5C216.777%2028.8461%20216.634%2024.4684%20218%2023.652C221.756%2021.407%20227.081%2029.2742%20229.5%2027.5L240.5%2020.625H249.5L256%2017.4737L267%2014L278%2025L280.5%2031.652L287%2029.5L291.5%2035.5L298%2038L304%2035.5L314%2038L325%2037L329.5%2038H336L348%2035.5L354%2028H365L370.5%2020.5L382.5%2020.875L389.5%2017L402%2020.875L409.5%2017L424.5%2018.5L435.5%2017L451%2018.5L463%2017L471.5%2023L478.5%2020.875L487%2024.5L498.5%2025.5L505%2028H510C510.958%2029.5968%20510.605%2033.4726%20512.5%2035.5C514.561%2037.7047%20518.916%2038%20521%2038H530L585%2028L616%2017L632%2010L651.5%2013.5L668.5%2021.7L676.5%2018.1L686%2023.5L694.5%2021.7L705.5%2027.5L717%2026.2L727%2030.6786H733.5L744%2037.5L754%2038L786%2028H814L868%2017L887%2019.1111L898%2023L910%2021.6667L917%2024L927%2022.3333L933%2024L943.5%2020.1957L956.5%2021L964%2017.5217L968%2017L980%2010H1005L1015%2017H1052L1110%2010L1132%200L1141%201.8L1156.5%208L1165.5%206.7L1180.5%2011.625H1188.75L1195.5%2014.6944H1201.5L1209.5%2018L1221%2019.3889L1235%2027L1268%2038L1311%2028L1316%2023L1338%2017L1354%2028L1364%2038L1392%2028.6667L1404.5%2030L1409%2023H1419.5L1427%2017L1437%2020L1445%2028.6667L1456%2023L1470.5%2028.6667L1497.5%2017L1505%2010L1514%2013L1522%2010L1530.5%2012L1536%205L1543.5%208.05L1553%205.40854L1563%2010L1567%200L1584%208.05L1594%206.55L1604.5%202L1614.5%204.75L1631%2011.5L1647.5%208.05L1667%2018V102H0Z%22%20fill%3D%22var%28--awb-color1%29%22%2F%3E%3C%2Fsvg%3E );"></div></div><div class="fusion-section-separator-spacer fusion-section-separator-fullwidth"><div class="fusion-section-separator-spacer-height"></div></div></div></div></div></div></div>
+</div>		<div id="sliders-container" class="fusion-slider-visibility">
+					</div>
+											
+			
+						<main id="main" class="clearfix width-100">
+				<div class="fusion-row" style="max-width:100%;">
+
+<section id="content" style="width: 100%;">
+									<div id="post-6323" class="post-6323 post type-post status-publish format-standard has-post-thumbnail hentry category-nifi">
+
+				<div class="post-content">
+					<div class="fusion-fullwidth fullwidth-box fusion-builder-row-4 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-padding-bottom:90px;--awb-padding-top-small:40px;--awb-padding-bottom-small:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-justify-content-center fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-7 fusion_builder_column_1_1 1_1 fusion-flex-column fusion-animated" style="--awb-bg-color: var(--awb-color1); --awb-bg-color-hover: var(--awb-color1); --awb-bg-size: cover; --awb-width-large: 100%; --awb-margin-top-large: 0px; --awb-spacing-right-large: 40px; --awb-margin-bottom-large: 70px; --awb-spacing-left-large: 40px; --awb-width-medium: 100%; --awb-order-medium: 0; --awb-spacing-right-medium: 40px; --awb-spacing-left-medium: 40px; --awb-width-small: 100%; --awb-order-small: 0; --awb-margin-top-small: -80px; --awb-spacing-right-small: 40px; --awb-spacing-left-small: 40px; visibility: visible; animation-duration: 1s;" data-animationtype="fadeInUp" data-animationduration="1.0" data-animationoffset="top-into-view" data-scroll-devices="small-visibility,medium-visibility,large-visibility"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-image-element " style="text-align:center;--awb-caption-title-font-family:var(--h2_typography-font-family);--awb-caption-title-font-weight:var(--h2_typography-font-weight);--awb-caption-title-font-style:var(--h2_typography-font-style);--awb-caption-title-size:var(--h2_typography-font-size);--awb-caption-title-transform:var(--h2_typography-text-transform);--awb-caption-title-line-height:var(--h2_typography-line-height);--awb-caption-title-letter-spacing:var(--h2_typography-letter-spacing);"><span class=" fusion-imageframe imageframe-none imageframe-2 hover-type-none"><img fetchpriority="high" decoding="async" width="1920" height="1080" title="pexels-alex-vasilyev-136703-431420-1920" src="./The NiFi Expression Language – DDP Sandbox_files/pexels-alex-vasilyev-136703-431420-1920.jpg" data-orig-src="http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920.jpg" alt="" class="img-responsive wp-image-6324 lazyautosizes lazyloaded" srcset="http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-200x113.jpg 200w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-400x225.jpg 400w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-600x338.jpg 600w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-800x450.jpg 800w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-1200x675.jpg 1200w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920.jpg 1920w" data-srcset="http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-200x113.jpg 200w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-400x225.jpg 400w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-600x338.jpg 600w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-800x450.jpg 800w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920-1200x675.jpg 1200w, http://localhost/wp-content/uploads/2025/04/pexels-alex-vasilyev-136703-431420-1920.jpg 1920w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 1200px" sizes="1158px"></span></div></div></div><div class="fusion-layout-column fusion_builder_column fusion-builder-column-8 fusion_builder_column_1_1 1_1 fusion-flex-column fusion-animated" style="--awb-bg-size: cover; --awb-width-large: 100%; --awb-margin-top-large: 0px; --awb-spacing-right-large: 40px; --awb-margin-bottom-large: 20px; --awb-spacing-left-large: 40px; --awb-width-medium: 100%; --awb-order-medium: 0; --awb-spacing-right-medium: 40px; --awb-spacing-left-medium: 40px; --awb-width-small: 100%; --awb-order-small: 0; --awb-spacing-right-small: 40px; --awb-margin-bottom-small: 0px; --awb-spacing-left-small: 40px; visibility: visible; animation-duration: 1s;" data-animationtype="fadeInDown" data-animationduration="1.0" data-animationoffset="top-into-view"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-content-tb fusion-content-tb-1"><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-1 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-9 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="accordian fusion-accordian" style="--awb-border-size:3px;--awb-icon-size:16px;--awb-content-font-size:var(--awb-typography4-font-size);--awb-icon-alignment:left;--awb-hover-color:var(--awb-color1);--awb-border-color:var(--awb-color4);--awb-background-color:var(--awb-color1);--awb-divider-color:var(--awb-color3);--awb-divider-hover-color:var(--awb-color3);--awb-icon-color:var(--awb-color4);--awb-title-color:var(--awb-color8);--awb-content-color:var(--awb-color8);--awb-icon-box-color:var(--awb-color7);--awb-toggle-hover-accent-color:var(--awb-color4);--awb-title-font-family:var(--awb-typography1-font-family);--awb-title-font-weight:var(--awb-typography1-font-weight);--awb-title-font-style:var(--awb-typography1-font-style);--awb-content-font-family:var(--awb-typography4-font-family);--awb-content-font-weight:var(--awb-typography4-font-weight);--awb-content-font-style:var(--awb-typography4-font-style);"><div class="panel-group fusion-toggle-icon-unboxed" id="accordion-6323-1"><div class="fusion-panel panel-default panel-29ae8fef5a0a906fa fusion-toggle-no-divider fusion-toggle-boxed-mode" style="--awb-title-color:var(--awb-color8);"><div class="panel-heading"><h4 class="panel-title toggle" id="toggle_29ae8fef5a0a906fa"><a aria-expanded="false" aria-controls="29ae8fef5a0a906fa" role="button" data-toggle="collapse" data-parent="#accordion-6323-1" data-target="#29ae8fef5a0a906fa" href="http://localhost/the-nifi-expression-language/#29ae8fef5a0a906fa"><span class="fusion-toggle-icon-wrapper" aria-hidden="true"><i class="fa-fusion-box active-icon awb-icon-minus" aria-hidden="true"></i><i class="fa-fusion-box inactive-icon awb-icon-plus" aria-hidden="true"></i></span><span class="fusion-toggle-heading">Table of Contents</span></a></h4></div><div id="29ae8fef5a0a906fa" class="panel-collapse collapse " aria-labelledby="toggle_29ae8fef5a0a906fa"><div class="panel-body toggle-content fusion-clearfix">
+<div class="awb-toc-el awb-toc-el--1" data-awb-toc-id="1" data-awb-toc-options="{&quot;allowed_heading_tags&quot;:{&quot;h2&quot;:0,&quot;h3&quot;:1},&quot;ignore_headings&quot;:&quot;&quot;,&quot;ignore_headings_words&quot;:&quot;Content&quot;,&quot;enable_cache&quot;:&quot;yes&quot;,&quot;highlight_current_heading&quot;:&quot;no&quot;,&quot;hide_hidden_titles&quot;:&quot;yes&quot;,&quot;limit_container&quot;:&quot;post_content&quot;,&quot;select_custom_headings&quot;:&quot;&quot;,&quot;icon&quot;:&quot;fa-flag fas&quot;,&quot;counter_type&quot;:&quot;decimal&quot;}" style="--awb-counter-type:counters(awb-toc, &quot;.&quot;, decimal) &quot;. &quot;;--awb-item-overflow:hidden;--awb-item-white-space:nowrap;--awb-item-text-overflow:ellipsis;"><div class="awb-toc-el__content"><ul class="awb-toc-el__list awb-toc-el__list--0"><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Introduction">Introduction</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Why_NiFi_Expression_Language">Why NiFi Expression Language</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Where_To_Use_Expression_Language">Where To Use Expression Language</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Expression_Language_Editor">Expression Language Editor</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Expression_Language_Data_Types">Expression Language Data Types</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Structure_of_Expression_Language">Structure of Expression Language</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Unleash_the_Power_of_Expression_Language">Unleash the Power of Expression Language</a><ul class="awb-toc-el__list awb-toc-el__list--1"><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Functions">Functions</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Operators">Operators</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Attributes">Attributes</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Type_Handling">Type Handling</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Boolean_Logic">Boolean Logic</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Working_with_Json">Working with Json</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Common_Scenarios">Common Scenarios</a></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Advanced_Features">Advanced Features</a></li></ul></li><li class="awb-toc-el__list-item"><a class="awb-toc-el__item-anchor" href="http://localhost/the-nifi-expression-language/#toc_Summary">Summary</a></li></ul></div></div>
+</div></div></div></div></div>
+<div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div><div class="fusion-title title fusion-title-2 sep-underline sep-solid fusion-title-text fusion-title-size-two" style="--awb-sep-color:var(--awb-color4);"><h2 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Introduction">Introduction</h2></div><div class="fusion-text fusion-text-1"><p>In today’s data-driven world, managing and automating data flows efficiently is critical. Apache NiFi simplifies this process with its intuitive visual interface and powerful processors, but what truly unlocks its potential is the <strong>NiFi Expression Language</strong> (NFL). This language acts as the “glue” that connects static workflows to dynamic, intelligent data pipelines, allowing you to adapt to ever-changing data requirements without rewriting entire processes.</p>
+<p>Imagine needing to <strong>route</strong> files based on their <strong>names</strong>, <strong>filter</strong> sensitive data by checking metadata, or dynamically <strong>rename</strong> files as they move through your system. Manually coding these behaviors would be time-consuming and rigid. Instead, the NiFi Expression Language empowers you to inject logic directly into your workflows using simple, expressive syntax.</p>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:36px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-2 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-10 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-3 sep-underline sep-solid fusion-title-text fusion-title-size-two" style="--awb-sep-color:var(--awb-color4);"><h2 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Why_NiFi_Expression_Language">Why NiFi Expression Language</h2></div><div class="fusion-text fusion-text-2"><p>The Expression Language is used heavily throughout the NiFi application for configuring <strong>Processor</strong> <strong>properties</strong>. Not all Processor properties support the Expression Language, however. Whether or not a Property supports the Expression Language is determined by the developer of the Processor when the Processor is written.&nbsp; However, the application strives to clearly illustrate for each Property whether or not the Expression Language is supported.</p>
+<p>This tutorial will guide you through the fundamentals of the <strong>NiFi Expression Language</strong>, starting with its core concepts and building up to practical use cases. By the end, you’ll be able to:</p>
+<ul>
+<li>Reference and manipulate <strong>FlowFile attributes</strong> (e.g., <code>${filename}</code>,&nbsp;<code>${path}</code>).</li>
+<li>Apply <strong>functions</strong> (e.g., string manipulation, math operations, date formatting).</li>
+<li>Build <strong>conditional logic</strong> (e.g., ${size &gt; 1000000:toBoolean()}).</li>
+<li>Design smarter workflows that react to data in real time.</li>
+</ul>
+<p>Whether you’re filtering logs, transforming JSON, or orchestrating multi-step data pipelines, mastering the NiFi Expression Language will transform how you work with data in NiFi. Let’s begin by exploring how this language turns static workflows into dynamic, intelligent systems!</p>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:36px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-3 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-11 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-4 sep-underline sep-solid fusion-title-text fusion-title-size-two" style="--awb-sep-color:var(--awb-color4);"><h2 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Where_To_Use_Expression_Language">Where To Use Expression Language</h2></div><div class="fusion-text fusion-text-3"><p>When configuring a component property, the User Interface provides an Information icon (<em>see image below</em>) next to the name of the Property. Hovering over this icon with the mouse will provide a tooltip that provides helpful information about the Property. This information includes:</p>
+<ul>
+<li><strong>Description</strong> of the Property, the default value (if any)</li>
+<li><strong>Historically</strong> configured values (if any)</li>
+<li><strong>Evaluation</strong> scope of this property for expression language.</li>
+</ul>
+<p><a href="./The NiFi Expression Language – DDP Sandbox_files/nifi-processors-info-icons.png" data-caption=""><img decoding="async" class="aligncenter wp-image-6349 lazyautosizes lazyloaded" src="./The NiFi Expression Language – DDP Sandbox_files/nifi-processors-info-icons.png" data-orig-src="http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons.png" alt="" width="818" height="190" srcset="http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-200x46.png 200w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-300x70.png 300w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-400x93.png 400w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-600x139.png 600w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-768x178.png 768w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-800x186.png 800w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-1024x238.png 1024w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-1200x279.png 1200w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons.png 1291w" data-srcset="http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-200x46.png 200w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-300x70.png 300w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-400x93.png 400w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-600x139.png 600w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-768x178.png 768w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-800x186.png 800w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-1024x238.png 1024w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons-1200x279.png 1200w, http://localhost/wp-content/uploads/2025/04/nifi-processors-info-icons.png 1291w" data-sizes="auto" data-orig-sizes="(max-width: 818px) 100vw, 818px" sizes="818px"></a></p>
+<p>There are three values and the evaluation scope of the expression language is hierarchical:</p>
+<pre><strong>NONE, #VARIABLE_REGISTRY, #FLOWFILE_ATTRIBUTES.</strong></pre>
+<ul>
+<li><strong>NONE</strong> – expression language is not supported for this property</li>
+<li><strong>VARIABLE_REGISTRY</strong> is hierarchically constructed as below:
+<ul>
+<li>Variables defined at process group level and then, recursively, up to the higher process group until the root process group.</li>
+<li>Variables defined in custom properties files by the administrator.</li>
+<li>Environment variables defined at JVM level and system properties.</li>
+</ul>
+</li>
+<li><strong>FLOWFILE_ATTRIBUTES</strong> – will use attributes of each individual flow file, as well as those variables defined by the Variable Registry, as described above.</li>
+</ul>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-4 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-12 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-5 sep-underline sep-solid fusion-title-text fusion-title-size-two" style="--awb-sep-color:var(--awb-color4);"><h2 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Expression_Language_Editor">Expression Language Editor</h2></div><div class="fusion-text fusion-text-4"><p>When configuring the <strong>value</strong> of a Processor property, the NiFi User Interface provides help with the Expression Language using the Expression Language editor. Once an Expression is begin by typing <strong>${</strong>, the editor begins to <strong>highlight parentheses</strong> and <strong>braces</strong> so that the user is easily able to tell which opening parenthesis or brace matches which closing parenthesis or brace.</p>
+<p>The editor also supplies <strong>context-sensitive</strong> help by providing a list of <strong>all functions</strong> that can be used at the current cursor position. To activate this feature, press <strong>Ctrl+Space</strong> on the keyboard. The user is also able to type part of a function name and then press <strong>Ctrl+Space</strong> to see all functions that can be used that start with the same prefix.</p>
+<p>For example, if we type into the editor <strong>${filename:to</strong> and then press <strong>Ctrl+Space</strong>, we are provided a pop-up that lists six different functions: <strong>toDate, toLower, toNumber, toRadix, toString, and toUpper</strong>. We can then continue typing to narrow which functions are shown, or we can select one of the functions from the list by double-clicking it with the mouse or using the arrow keys to highlight the desired function and pressing Enter.</p>
+</div><div class="fusion-text fusion-text-5"><p>The following figure shows the Expression Language editor.</p>
+<p><a href="./The NiFi Expression Language – DDP Sandbox_files/nifi-el-editor.png" data-caption=""><img decoding="async" class="aligncenter wp-image-6336 lazyautosizes ls-is-cached lazyloaded" src="./The NiFi Expression Language – DDP Sandbox_files/nifi-el-editor.png" data-orig-src="http://localhost/wp-content/uploads/2025/04/nifi-el-editor.png" alt="" width="637" height="252" srcset="http://localhost/wp-content/uploads/2025/04/nifi-el-editor-200x79.png 200w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-300x119.png 300w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-400x158.png 400w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-600x237.png 600w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-768x303.png 768w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-800x316.png 800w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-1024x405.png 1024w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-1200x474.png 1200w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor.png 1225w" data-srcset="http://localhost/wp-content/uploads/2025/04/nifi-el-editor-200x79.png 200w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-300x119.png 300w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-400x158.png 400w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-600x237.png 600w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-768x303.png 768w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-800x316.png 800w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-1024x405.png 1024w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor-1200x474.png 1200w, http://localhost/wp-content/uploads/2025/04/nifi-el-editor.png 1225w" data-sizes="auto" data-orig-sizes="(max-width: 637px) 100vw, 637px" sizes="637px"></a></p>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:24px;width:100%;"></div><div class="fusion-text fusion-text-6"><p>The following image shows the context-sensitive help (by pressing <strong>Ctrl + Space</strong>).</p>
+<p><a href="./The NiFi Expression Language – DDP Sandbox_files/nifi-el-intellisens.png" data-caption=""><img decoding="async" class="aligncenter wp-image-6337 lazyautosizes lazyloaded" src="./The NiFi Expression Language – DDP Sandbox_files/nifi-el-intellisens.png" data-orig-src="http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens.png" alt="" width="660" height="326" srcset="http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-200x99.png 200w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-300x148.png 300w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-400x197.png 400w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-600x296.png 600w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-768x379.png 768w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-800x395.png 800w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens.png 1015w" data-srcset="http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-200x99.png 200w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-300x148.png 300w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-400x197.png 400w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-600x296.png 600w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-768x379.png 768w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens-800x395.png 800w, http://localhost/wp-content/uploads/2025/04/nifi-el-intellisens.png 1015w" data-sizes="auto" data-orig-sizes="(max-width: 660px) 100vw, 660px" sizes="660px"></a></p>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-5 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-13 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-6 sep-underline sep-solid fusion-title-text fusion-title-size-two" style="--awb-sep-color:var(--awb-color4);"><h2 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Expression_Language_Data_Types">Expression Language Data Types</h2></div><div class="fusion-text fusion-text-7"><p>Each <strong>argument</strong> to a function and each <strong>value</strong> returned from a function has a <strong>specific data type</strong>. The Expression Language supports <strong>five</strong>&nbsp;different data types:</p>
+<ul>
+<li><strong>String</strong>: A String is a sequence of characters that can consist of numbers, letters, white space, and special characters.</li>
+</ul>
+<ul>
+<li><strong>Number</strong>: A Number is an whole number comprised of one or more digits (0 through 9). When converting to numbers from Date data types, they are represented as the number of milliseconds since midnight GMT on January 1, 1970.</li>
+</ul>
+<ul>
+<li><strong>Decimal</strong>: A Decimal is a numeric value that can support decimals and larger values with minimal loss of precision. More precisely it is a double-precision 64-bit IEEE 754 floating point. Due to this minimal loss of precision this data type should not be used for very precise values, such as currency. For more documentation on the range of values stored in this data type refer to this <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2.3">link</a>. The following are some examples of the forms of literal decimals that are supported in expression language (the “E” can also be lower-case):<br>
+– 1.1<br>
+– .1E1<br>
+– 1.11E-12</li>
+</ul>
+<ul>
+<li><strong>Date</strong>: A Date is an object that holds a Date and Time. Utilizing the Date Manipulation and Type Coercion functions this data type can be converted to/from Strings and numbers. If the whole Expression Language expression is evaluated to be a date then it will be converted to a String with the format: ” :: <time> “. Also expressed as “E MMM dd HH:mm:ss z yyyy” in Java&nbsp; SimpleDateFormat format. For example: “Wed Dec 31 12:00:04 UTC 2016”.</time></li>
+</ul>
+<ul>
+<li><strong>Boolean</strong>: A Boolean is one of either true or false.</li>
+</ul>
+<p>After evaluating expression language functions, all attributes are stored as type <strong>String</strong>.</p>
+<p>The Expression Language is generally able to <strong>automatically coerce</strong> a value of one data type to the appropriate data type for a function. However, functions do exist to manually coerce a value into a specific data type.</p>
+<p>Hex values are supported for <strong>Number</strong> and <strong>Decimal</strong> types but they must be quoted and prepended with <strong>“0x”</strong> when being interpreted as literals. For example these two expressions are valid (without the quotes or <strong>“0x”</strong> the expression would fail to run properly):</p>
+<ul>
+<li><strong>${literal(“<span style="color: #800080;">0xF</span>“):toNumber()}</strong></li>
+<li><strong>${literal(“<span style="color: #800080;">0xF.Fp10</span>“):toDecimal()} </strong></li>
+</ul>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-6 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-14 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-7 sep-underline sep-solid fusion-title-text fusion-title-size-two" style="--awb-sep-color:var(--awb-color4);"><h2 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Structure_of_Expression_Language">Structure of Expression Language</h2></div><div class="fusion-text fusion-text-8"><p>The NiFi Expression Language (EL) is a lightweight, powerful syntax designed to <strong>dynamically reference</strong> FlowFile attributes, <strong>manipulate</strong> values, and <strong>control</strong> data routing in Apache NiFi. Its structure combines simplicity with flexibility, enabling users to embed logic directly into processor configurations without writing complex code.</p>
+<p>The NiFi Expression Language always begins with the start delimiter <strong>${</strong> and ends with the end delimiter<strong> }</strong>. Between the start and end delimiters is the text of the Expression itself. In its most basic form, the Expression can consist of just an attribute name. For example, <strong>${filename}</strong> will return the <strong>value</strong> of the filename attribute.</p>
+<p>In a slightly more complex example, we can instead return a manipulation of this value. We can, for example, return an all upper-case version of the filename by calling the toUpper function: <strong>${filename:toUpper()}</strong>. In this case, we reference the filename attribute and then manipulate this value by using the <strong>toUpper&nbsp;</strong> function.</p>
+<p><strong><span class="_2PHJq public-DraftStyleDefault-ltr">A Function Has Five Elements :</span></strong></p>
+<ol>
+<li>There is the function call delimiter</li>
+<li>There is the name of the function</li>
+<li>Opened parenthesis</li>
+<li>Function arguments. There would usually be function arguments right here, but the <strong>toUpper</strong> function has no arguments.</li>
+<li>Closed parenthesis</li>
+</ol>
+<p><a href="./The NiFi Expression Language – DDP Sandbox_files/nifi-nel-structure.jpeg" data-caption=""><img decoding="async" class="aligncenter size-full wp-image-6330 lazyautosizes ls-is-cached lazyloaded" src="./The NiFi Expression Language – DDP Sandbox_files/nifi-nel-structure.jpeg" data-orig-src="http://localhost/wp-content/uploads/2025/04/nifi-nel-structure.jpeg" alt="" width="740" height="356" srcset="http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-200x96.jpeg 200w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-300x144.jpeg 300w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-400x192.jpeg 400w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-600x289.jpeg 600w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure.jpeg 740w" data-srcset="http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-200x96.jpeg 200w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-300x144.jpeg 300w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-400x192.jpeg 400w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure-600x289.jpeg 600w, http://localhost/wp-content/uploads/2025/04/nifi-nel-structure.jpeg 740w" data-sizes="auto" data-orig-sizes="(max-width: 740px) 100vw, 740px" sizes="740px"></a></p>
+<p>There are many different functions that are supported by the Expression Language to achieve many different goals. Some functions provide <strong>String</strong> (text) manipulation, such as the <strong>toUpper</strong> function. Others, such as the <strong>equals</strong> and <strong>matches </strong>functions, provide comparison functionality. Functions also exist for manipulating <strong>dates</strong> and <strong>times</strong> and for performing <strong>mathematical</strong> operations.</p>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:48px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-7 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-15 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-8 sep-underline sep-solid fusion-title-text fusion-title-size-two" style="--awb-sep-color:var(--awb-color4);"><h2 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Unleash_the_Power_of_Expression_Language">Unleash the Power of Expression Language</h2></div><div class="fusion-text fusion-text-9"><p>Now that you’ve explored the structure and capabilities of the NiFi Expression Language (EL), it’s time to put theory into action! In this hands-on section, you’ll experiment with real-world scenarios to solidify your understanding. You’ll learn how to:</p>
+<ul>
+<li><strong>Dynamically rename files</strong>&nbsp;using timestamps and metadata.</li>
+<li><strong>Route data</strong>&nbsp;based on conditions like file size, content type, or custom attributes.</li>
+<li><strong>Transform and enrich data</strong>&nbsp;on the fly with string manipulation and arithmetic.</li>
+<li><strong>Troubleshoot expressions</strong>&nbsp;using NiFi’s built-in EL preview tools.</li>
+</ul>
+<p>Key rules:</p>
+<ul>
+<li><strong>Case-sensitive</strong>:&nbsp;<code>${filename}</code>&nbsp;≠&nbsp;<code>${FileName}</code>.</li>
+<li><strong>Whitespace</strong>: Avoid spaces unless inside quotes for strings.</li>
+<li><strong>Nesting</strong>: Expressions can be nested (e.g.,&nbsp;<code>${${sensor.type}:toLower()}</code>).</li>
+</ul>
+<p>Grab your NiFi instance, roll up your sleeves, and let’s dive into practical exercises that will turn abstract syntax into muscle memory. By the end, you’ll see firsthand how a few clever expressions can automate complex workflows—no custom code required! 🛠️</p>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-8 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-16 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-9 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Functions">Functions</h3></div><div class="fusion-text fusion-text-10"><div class="fusion-text fusion-text-10"></div>
+<p><span style="color: #ffcc00;"><span style="color: #000000;">EL <strong>Functions</strong> </span></span>provide a convenient way to <strong>manipulate</strong> and <strong>compare</strong> values of attributes. The Expression Language provides many different <strong>functions</strong> to meet the needs of a automated dataflow. Each function takes zero or more arguments and returns a single value. These functions can then be <strong>chained</strong> together to create powerful Expressions to <strong>evaluate conditions</strong> and <strong>manipulate values</strong>.</p>
+<p>NiFi EL includes built-in functions to transform or <strong>evaluate</strong> data. Functions are chained using <span style="color: #800080;"><strong>Colon Punctuation ‘ : ‘.</strong></span></p>
+<p><strong>Common Function Categories:</strong></p>
+</div><div class="fusion-text fusion-text-12"><div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Category</th>
+<th align="left">Example Functions</th>
+<th align="left">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>String</strong></td>
+<td align="left">
+<pre><code>toUpper()</code>,&nbsp;<code>substring(1,5)</code>,&nbsp;<code>replace('old','new')</code></pre>
+</td>
+<td align="left">Modify text:&nbsp;<code>${filename:toUpper()}</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Math</strong></td>
+<td align="left">
+<pre><code>plus(5)</code>,&nbsp;<code>multiply(10)</code>,&nbsp;<code>mod(3)</code></pre>
+</td>
+<td align="left">Calculate values:&nbsp;<code>${size:plus(100)}</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Date/Time</strong></td>
+<td align="left">
+<pre><code>now()</code>,&nbsp;<code>format('yyyy-MM-dd')</code>,&nbsp;<code>toDate()</code></pre>
+</td>
+<td align="left">Format timestamps:&nbsp;<code>${now():format('HH:mm')}</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Logical</strong></td>
+<td align="left">
+<pre><code>isNull()</code>,&nbsp;<code>not()</code>,&nbsp;<code>equals('test')</code></pre>
+</td>
+<td align="left">Evaluate conditions:&nbsp;<code>${size:gt(1000)}</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="fusion-text fusion-text-13"></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-9 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-17 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-10 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Operators">Operators</h3></div><div class="fusion-text fusion-text-14"><p>EL supports&nbsp;<strong>logical</strong>,&nbsp;<strong>comparison</strong>, and&nbsp;<strong>arithmetic</strong>&nbsp;operators:</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Operators</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Comparison</strong></td>
+<td align="left">
+<pre><code>==</code>,&nbsp;<code>!=</code>,&nbsp;<code>&gt;</code>,&nbsp;<code>&lt;</code>,&nbsp;<code>&gt;=</code>,&nbsp;<code>&lt;=</code></pre>
+</td>
+<td align="left">
+<pre><code>${size &gt; 1000000}</code> (returns <code style="font-size: inherit;">true</code><span style="font-family: inherit; font-size: inherit;">/</span><code style="font-size: inherit;">false</code><span style="font-family: inherit; font-size: inherit;">)</span></pre>
+</td>
+</tr>
+<tr>
+<td align="left"><strong>Logical</strong></td>
+<td align="left">
+<pre><code>and</code>,&nbsp;<code>or</code>,&nbsp;<code>not</code></pre>
+</td>
+<td align="left">
+<pre><code>${size &gt; 1000 and filename:contains('log')}</code></pre>
+</td>
+</tr>
+<tr>
+<td align="left"><strong>Arithmetic</strong></td>
+<td align="left">
+<pre><code>+</code>,&nbsp;<code>-</code>,&nbsp;<code>*</code>,&nbsp;<code>/</code>,&nbsp;<code>%</code></pre>
+</td>
+<td align="left">
+<pre><code>${fileCount:plus(1)}</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-10 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-18 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-11 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Attributes">Attributes</h3></div><div class="fusion-text fusion-text-15"><p>EL directly accesses&nbsp;<strong>FlowFile attributes</strong>&nbsp;(metadata) using their names.</p>
+<p><strong>Example</strong>:</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Attribute</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${filename}</span></pre>
+</td>
+<td align="left">// Name of the original file</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${uuid}</span></pre>
+</td>
+<td align="left">// Unique identifier of the FlowFile</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${path}</span></pre>
+</td>
+<td align="left">// Directory path of the source file</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${mime.type}</span></pre>
+</td>
+<td align="left">// MIME type of the content (e.g., “text/csv”)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><p><strong>Handling Missing Attributes</strong>:<br>
+Use&nbsp;<strong><code>default()</code></strong>&nbsp;to avoid errors if an attribute is missing:</p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Attribute</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${nonExistentAttribute:default('unknown')}</span></pre>
+</td>
+<td align="left">// Returns “unknown”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+</div><div class="fusion-text fusion-text-16"></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-11 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-19 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-12 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Type_Handling">Type Handling</h3></div><div class="fusion-text fusion-text-17"><p>EL <strong>implicitly</strong> converts values to appropriate types (e.g., string, number, boolean). Use functions for <strong>explicit</strong> casting:</p>
+<p><strong>Example</strong>:</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Attribute</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${timestamp:toNumber()}</span></pre>
+</td>
+<td align="left">// Convert to numeric (e.g., epoch time)</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${'100':toNumber()} </span></pre>
+</td>
+<td align="left">// String “100” → number 100</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${size:gt(5000):toString()}</span></pre>
+</td>
+<td align="left">// Boolean → string “true”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-text fusion-text-18"></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-12 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-20 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-13 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Boolean_Logic">Boolean Logic</h3></div><div class="fusion-text fusion-text-19"><p>With EL, you are able to <strong>compare</strong> the value of an attribute against the value of another attribute. For example, the “<strong>equals()</strong>” function is used very widely as it determines if another String value is equal to the subject. In other words, it gives you a <strong>direct comparison</strong> of both String values. You will receive a Boolean response.</p>
+<p>For example, if you wish to <strong>find</strong> out if a filename is called “<strong>hello.txt</strong>” you could check if the value of the filename attribute is <strong>equal</strong> to the value of the “hello.txt” string.&nbsp;Here is a quick examples of how Boolean logic may be applied.</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${filename:equals( 'hello.txt')}</span></pre>
+</td>
+<td align="left">// Check if the filename is equal to “hello.txt”</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${my_attribute:equals( ${filename})}</span></pre>
+</td>
+<td align="left">// Check if the filename is equal to the value of&nbsp; <span style="color: #800080;">my_attribute (attribute)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-13 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-21 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-14 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Working_with_Json">Working with Json</h3></div><div class="fusion-text fusion-text-20"><p>EL provide functions to manipulate JSON and XML. If you reference JSONs with processors, then you must utilize the <strong>JSONPath</strong> <strong>expression language</strong>. Below is an example of a using <strong>JsonPath</strong> to evaluate Json attribues.</p>
+<p>Let’s consider the following Json input file:</p>
+</div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:15px;width:100%;"></div><style type="text/css" scopped="scopped">.fusion-syntax-highlighter-1 > .CodeMirror, .fusion-syntax-highlighter-1 > .CodeMirror .CodeMirror-gutters {background-color:var(--awb-color1);}.fusion-syntax-highlighter-1 > .CodeMirror .CodeMirror-gutters { background-color: var(--awb-color2); }.fusion-syntax-highlighter-1 > .CodeMirror .CodeMirror-linenumber { color: var(--awb-color8); }</style><div class="fusion-syntax-highlighter-container fusion-syntax-highlighter-1 fusion-syntax-highlighter-theme-light" style="opacity: 1; margin: 0px; font-size: 14px; border-width: 1px; border-style: solid; border-color: var(--awb-color3);"><div class="syntax-highlighter-copy-code"><span class="syntax-highlighter-copy-code-title" data-id="fusion_syntax_highlighter_1" style="font-size:14px;">Copy to Clipboard</span></div><label for="fusion_syntax_highlighter_1" class="screen-reader-text">Syntax Highlighter</label><textarea class="fusion-syntax-highlighter-textarea code-mirror-initialized" id="fusion_syntax_highlighter_1" data-readonly="nocursor" data-linenumbers="1" data-linewrapping="" data-theme="default" data-mode="application/json" style="display: none;">{
+  "name": "Emily Smith",
+  "address": {
+    "street": "456 Oak Rd",
+    "state": "NY",
+    "zipcode": "10001"
+  },
+  "phones": [
+    {
+      "type": "home",
+      "number": "555-1111"
+    },
+    {
+      "type": "office",
+      "number": "555-2222"
+    }
+  ],
+  "children": [
+    {
+      "name": "Lucy",
+      "age": 12
+    },
+    {
+      "name": "Tom",
+      "age": 7
+    }
+  ],
+  "spouse": null
+}</textarea><div class="CodeMirror cm-s-default" style="width: 100%; height: auto;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 3.99902px; left: 48.9944px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" disabled="" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 29px; margin-bottom: -13px; border-right-width: 17px; min-height: 779px; min-width: 237.277px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 19.9991px; top: 0px; height: 26.5978px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-string cm-property">"name"</span>: <span class="cm-string">"Emily Smith"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-string cm-property">"address"</span>: {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-string cm-property">"street"</span>: <span class="cm-string">"456 Oak Rd"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-string cm-property">"state"</span>: <span class="cm-string">"NY"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    <span class="cm-string cm-property">"zipcode"</span>: <span class="cm-string">"10001"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  },</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-string cm-property">"phones"</span>: [</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"type"</span>: <span class="cm-string">"home"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"number"</span>: <span class="cm-string">"555-1111"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    },</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"type"</span>: <span class="cm-string">"office"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"number"</span>: <span class="cm-string">"555-2222"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  ],</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-string cm-property">"children"</span>: [</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"name"</span>: <span class="cm-string">"Lucy"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"age"</span>: <span class="cm-number">12</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    },</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"name"</span>: <span class="cm-string">"Tom"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-string cm-property">"age"</span>: <span class="cm-number">7</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">    }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  ],</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  <span class="cm-string cm-property">"spouse"</span>: <span class="cm-atom">null</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28.9953px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 17px; width: 1px; border-bottom: 0px solid transparent; top: 779px;"></div><div class="CodeMirror-gutters" style="height: 796px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div><div class="fusion-title title fusion-title-15 sep-underline sep-solid fusion-title-text fusion-title-size-four" style="--awb-sep-color:var(--awb-color4);"><h4 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;">Example 1: Accessing a Simple Attribute</h4></div><div class="fusion-text fusion-text-21"><p>In an&nbsp;<span style="color: #ff9900;"><strong><code>EvaluateJsonPath</code></strong></span>&nbsp;processor, map&nbsp;<span style="color: #800080;"><strong><code>$.name</code></strong></span>&nbsp;to an attribute like&nbsp;<span style="color: #800080;"><code>parent_name</code></span>.</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+<th align="left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">$.name</span></pre>
+</td>
+<td align="left">Extract the parent’s name.</td>
+<td align="left">
+<pre><span style="color: #008000;">"Emily Smith"</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:20px;width:100%;"></div><div class="fusion-title title fusion-title-16 sep-underline sep-solid fusion-title-text fusion-title-size-four" style="--awb-sep-color:var(--awb-color4);"><h4 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;">Example 2: Accessing a Nested JSON Node</h4></div><div class="fusion-text fusion-text-22"><p>Use&nbsp;<span style="color: #800080;"><strong><code>$.address.street</code></strong></span>&nbsp;to populate an attribute like&nbsp;<span style="color: #800080;"><strong><code>street_address</code></strong></span>.</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+<th align="left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">$.address.street</span></pre>
+</td>
+<td align="left">Extract the street from the address.</td>
+<td align="left">
+<pre><span style="color: #008000;">"456 Oak Rd"</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:20px;width:100%;"></div><div class="fusion-title title fusion-title-17 sep-underline sep-solid fusion-title-text fusion-title-size-four" style="--awb-sep-color:var(--awb-color4);"><h4 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;">Example 3: Accessing a JSON Array</h4></div><div class="fusion-text fusion-text-23"><p>To evaluate Json arrays elements, use indexes (e.g <span style="color: #800080;"><strong><code>[0]</code></strong></span>) .</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+<th align="left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">$.phones[0].number</span></pre>
+</td>
+<td align="left"><span style="font-family: inherit; font-size: inherit;">Returns a</span> <span style="color: #ff0000;"><strong style="font-family: inherit; font-size: inherit;">Scalar</strong><span style="font-family: inherit; font-size: inherit;">&nbsp;</span></span><span style="font-family: inherit; font-size: inherit;">value. </span>Extract the first phone number.</td>
+<td align="left">
+<pre><span style="color: #008000;">"555-2222"</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:20px;width:100%;"></div><div class="fusion-title title fusion-title-18 sep-underline sep-solid fusion-title-text fusion-title-size-four" style="--awb-sep-color:var(--awb-color4);"><h4 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;">Example 4: Filtering an Array</h4></div><div class="fusion-text fusion-text-24"><p>To filter Json arrays elements, use filters (<strong><span style="color: #800080;"><code>[?(@.condition)]</code></span></strong>).</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+<th align="left">Destination Type</th>
+<th align="left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">$.phones[?(@.type == 'office')].number</span></pre>
+</td>
+<td align="left"><span style="font-family: inherit; font-size: inherit;">Returns a</span> <span style="font-family: inherit; font-size: inherit;"><strong><span style="color: #ff0000;">Array </span></strong></span><span style="font-family: inherit; font-size: inherit;">value. </span>Extract the first phone number.</td>
+<td align="left"><span style="color: #ff0000;"><strong>flowfile-content</strong></span></td>
+<td align="left">
+<pre><span style="color: #008000;"><span style="color: #339966;">[</span>"555-2222"<span style="color: #339966;">]</span></span></pre>
+</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">$.children[?(@.age &gt; 8)].name</span></pre>
+</td>
+<td align="left"><span style="font-family: inherit; font-size: inherit;">Returns an <strong><span style="color: #ff0000;">Array</span></strong>. </span>Extract the office phone number.</td>
+<td align="left"><span style="color: #ff0000;"><strong>flowfile-content</strong></span></td>
+<td align="left">
+<pre><span style="color: #339966;">["Lucy"]</span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:24px;width:100%;"></div><div class="fusion-title title fusion-title-19 sep-underline sep-solid fusion-title-text fusion-title-size-four" style="--awb-sep-color:var(--awb-color4);"><h4 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;">Example 5: Accessing Attributes using jsonPath()</h4></div><div class="fusion-text fusion-text-25"><p>You can also evaluate a Json Path and assign the result to an attribute using the <span style="color: #ffcc00;"><strong>jsonPath()</strong></span> function. Here we assume that the input Json is stored in an attribute called <span style="color: #339966;"><strong>myJson</strong></span>. Following are some examples:</p>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+<th align="left">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${myJson:jsonPath('$.name')}</span></pre>
+</td>
+<td align="left">Extract the parent’s name.</td>
+<td align="left">
+<pre><span style="color: #008000;">"Emily Smith"</span></pre>
+</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${myJson:jsonPath('$.address.zipcode')}</span></pre>
+</td>
+<td align="left">Extract the zipcode.</td>
+<td align="left">
+<div>
+<div><span style="color: #008000;">“10001”</span></div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${myJson:jsonPath('$.phones')}</span></pre>
+</td>
+<td align="left">Extract the phones node.</td>
+<td align="left">
+<div>
+<div><span style="color: #008000;">[</span><span style="color: #008000;"> {</span><span style="color: #008000;"> “type”: “home”,</span><span style="color: #008000;">&nbsp; “number”: “555-1111”</span><span style="color: #008000;">&nbsp; },</span></div>
+<div><span style="color: #008000;">&nbsp; &nbsp;{</span><span style="color: #008000;">“type”: “office”,</span><span style="color: #008000;">&nbsp; “number”: “555-2222”</span><span style="color: #008000;">&nbsp; &nbsp;}</span><span style="color: #008000;">&nbsp; ]</span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-14 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-22 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-20 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Common_Scenarios">Common Scenarios</h3></div><div class="fusion-text fusion-text-26"><p>These examples show how you manipulate and transform attributes values which is indispensable for dynamic workflows in NiFi!These examples show how you manipulate and transform attributes values which is indispensable for dynamic workflows in NiFi!</p>
+<p>These examples show how you manipulate and transform attributes values which is indispensable for dynamic workflows in NiFi!</p>
+<ul>
+<li><strong>Reformat a date</strong></li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${string_date:toDate("yyyy-MM-DD")}</span></pre>
+</td>
+<td align="left">// Convert a string to a date and apply a date format (year-month-day)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li><strong>Mathematical operations</strong></li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${amount_owed:minus(5)}</span></pre>
+</td>
+<td align="left">// Remove <span style="color: #800080;"><strong>5</strong></span> from the value of <span style="color: #800080;">amount_owed</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li><strong>Multi-variable: greater than</strong>.</li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${variable_one:gt(${variable_two})}</span></pre>
+</td>
+<td align="left">// Check if <span style="color: #800080;"><strong>variable_one</strong></span> is <strong>greater than <span style="color: #800080;">variable_two</span></strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li><strong>Adding a new directory to a path attribute</strong>.</li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${path:append('/new_directory')}</span></pre>
+</td>
+<td align="left">// Append a path attribute with ‘new directory’</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li><strong>Adding a new directory to a path attribute</strong>.</li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${path:append('/new_directory')}</span></pre>
+</td>
+<td align="left">// Append a path attribute with ‘new directory’</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li>
+<h4><strong>Dynamically Rename Files Using Timestamps and Metadata</strong></h4>
+</li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${filename:substringBeforeLast('.')}_${now():</span></pre>
+<pre><span style="color: #800080;">format('yyyyMMdd-HHmmss')}_user${user.id}.${filename:</span></pre>
+<pre><span style="color: #800080;">substringAfterLast('.')} </span></pre>
+</td>
+<td align="left">
+<ul>
+<li>Extracts the filename without its extension (e.g.,&nbsp;<strong><code>report</code></strong>&nbsp;from&nbsp;<strong><code>report.txt</code></strong>).</li>
+<li>Adds a timestamp (e.g.,&nbsp;<strong><code>20231015-153045</code></strong>) and a&nbsp;<strong><code>user.id</code></strong>&nbsp;attribute (e.g.,&nbsp;<strong><code>user123</code></strong>).</li>
+<li>Preserves the original file extension (e.g.,&nbsp;<strong><code>.txt</code></strong>).</li>
+</ul>
+<p style="padding-left: 40px;"><strong>Result</strong>:<br>
+<span style="color: #008000;"><code>report_20231015-153045_user123.txt</code></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li>
+<h4><strong>Route Data Based on Conditions</strong></h4>
+</li>
+</ul>
+
+<p style="padding-left: 40px;"><strong>Expression in&nbsp;<span style="color: #ffcc00;"><code>RouteOnAttribute</code></span>&nbsp;Processor</strong>:</p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080; font-size: inherit;">${size:gt(1048576)}
+</span></pre>
+</td>
+<td align="left">
+<ul>
+<li>Route files larger than <strong>1MB</strong> to specific directories.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080; font-size: inherit;">${mime.type:equals('text/csv')}</span></pre>
+</td>
+<td align="left">
+<ul>
+<li>Route <strong>CSV</strong> files to specific directories.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Configuration</th>
+<th align="left">Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<ul>
+<li>Create two relationships:&nbsp;<strong><code>large_files</code></strong>&nbsp;and&nbsp;<strong><code>csv_files</code></strong>.</li>
+<li>Use the above expressions in the processor’s dynamic properties.</li>
+</ul>
+</td>
+<td align="left">
+<ul>
+<li>Files larger than 1MB flow to&nbsp;<strong><code>large_files</code></strong>.</li>
+<li>CSV files flow to&nbsp;<strong><code>csv_files</code></strong>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p></p>
+<ul>
+<li>
+<h4><strong>Transform and Enrich Data On the Fly</strong></h4>
+</li>
+</ul>
+<p style="padding-left: 40px;"><strong>Use Case</strong>: Convert product names to uppercase and calculate total price (quantity × price).</p>
+<p></p>
+<p style="padding-left: 40px;"><strong>Expression in&nbsp;<span style="color: #ffcc00;"><code>UpdateAttribute</code></span>&nbsp;Processor</strong>:</p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080; font-size: inherit;">product_name_upper = ${product.name:toUpper()}
+</span></pre>
+</td>
+<td align="left">Assuming the product name is “widget”. This function Transforms <code>"<span style="color: #800080;">widget</span>"</code>&nbsp;to&nbsp;<code>"<span style="color: #800080;">WIDGET</span>"</code>.</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">total_price = ${quantity:toNumber():multiply(${price:toNumber()})}</span></pre>
+</td>
+<td align="left">Multiplies <span style="color: #800080;"><code>quantity</code></span>&nbsp;(e.g.,&nbsp;<span style="color: #800080;"><code>5</code></span>) by&nbsp;<span style="color: #800080;"><code>price</code></span>&nbsp;(e.g.,&nbsp;<span style="color: #800080;"><code>10</code></span>) →&nbsp;<span style="color: #800080;"><code>50 </code></span>and store the result into <strong><span style="color: #800080;"><code>total_price</code></span></strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-text fusion-text-27"></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-15 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-23 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-21 sep-underline sep-solid fusion-title-text fusion-title-size-three" style="--awb-sep-color:var(--awb-color4);"><h3 class="fusion-title-heading title-heading-left" style="margin:0;text-transform:capitalize;" id="toc_Advanced_Features">Advanced Features</h3></div><div class="fusion-text fusion-text-28"><ul>
+<li><strong>Ternary Operator</strong>: Conditionally return values.</li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${size &gt; 1000000:ifElse('large', 'small')}</span></pre>
+</td>
+<td align="left">// Returns “large” or “small”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li><strong>Regular Expressions</strong>: Extract or match patterns.</li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${filename:matches('^log_.*')} </span></pre>
+</td>
+<td align="left">// Returns `true` if filename starts with “log_”</td>
+</tr>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">${filename:replaceAll('[0-9]', 'X')} </span></pre>
+</td>
+<td align="left">// Replace all digits with “X”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><ul>
+<li><strong>Escaping</strong>: Use&nbsp;<code>$${</code>&nbsp;to treat&nbsp;<code>${</code> as a literal.</li>
+</ul>
+<p></p>
+<div class="table-1">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Expression</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<pre><span style="color: #800080;">$${filename} </span></pre>
+</td>
+<td align="left">// Outputs “<span style="color: #800080;">${filename}</span>” instead of evaluating it</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p></div><div class="fusion-text fusion-text-29"></div><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:64px;width:100%;"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4-16 fusion-flex-container has-pattern-background has-mask-background nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-24 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-separator fusion-full-width-sep" style="align-self: center;margin-left: auto;margin-right: auto;margin-bottom:24px;width:100%;"></div><div class="fusion-text fusion-text-30"><h2 id="toc_Summary">Summary</h2>
+<p>This tutorial introduced the NiFi Expression Language (EL) and JSONPath as essential tools for building dynamic, metadata-driven workflows in Apache NiFi. You learned how EL enables real-time data manipulation—renaming files with timestamps, routing based on conditions, and transforming attributes—using simple syntax like&nbsp;<strong><code>${attribute:function()}</code></strong>. JSONPath integration demonstrated extracting nested or array-based JSON data (e.g., addresses, phone numbers) for precise control.</p>
+<p>Combining these tools empowers you to automate complex tasks, eliminate hardcoding, and create adaptive pipelines that scale with evolving data needs. Mastery of EL and JSONPath unlocks efficient, maintainable workflows, turning raw data into actionable insights effortlessly.</p>
+</div></div></div></div></div>
+</div></div></div></div></div>
+				</div>
+			</div>
+			</section>
+						
+					</div>  <!-- fusion-row -->
+				</main>  <!-- #main -->
+				
+				
+								
+					<div class="fusion-tb-footer fusion-footer"><div class="fusion-footer-widget-area fusion-widget-area"><div class="fusion-fullwidth fullwidth-box fusion-builder-row-5 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-padding-top:32px;--awb-padding-bottom:32px;--awb-background-color:var(--awb-color8);--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-25 fusion_builder_column_2_3 2_3 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:66.666666666667%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:0px;--awb-spacing-left-large:40px;--awb-width-medium:66.666666666667%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-title title fusion-title-22 fusion-sep-none fusion-title-text fusion-title-size-two" style="--awb-text-color:var(--awb-color4);--awb-font-size:18px;"><h2 class="fusion-title-heading title-heading-left sm-text-align-center" style="margin:0;font-size:1em;text-transform:capitalize;">Highly Qualified Big Data Trainers</h2></div></div></div><div class="fusion-layout-column fusion_builder_column fusion-builder-column-26 fusion_builder_column_1_3 1_3 fusion-flex-column fusion-no-small-visibility" style="--awb-bg-size:cover;--awb-width-large:33.333333333333%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:0px;--awb-spacing-left-large:40px;--awb-width-medium:33.333333333333%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-end fusion-content-layout-row"><ul style="--awb-line-height:27.2px;--awb-icon-width:27.2px;--awb-icon-height:27.2px;--awb-icon-margin:11.2px;--awb-content-margin:38.4px;" class="fusion-checklist fusion-checklist-1 fusion-checklist-default type-icons"><li class="fusion-li-item" style=""><span class="icon-wrapper circle-no"><i class="fusion-li-icon fa-envelope fas" aria-hidden="true"></i></span><div class="fusion-li-item-content">
+<p><a href="http://localhost/contact-us/"><span style="color: var(--awb-color1); letter-spacing: 2px; line-height: 27.2px; font-size: 12px; font-family: Poppins; font-weight: 600;" data-fusion-font="true" data-fusion-google-font="Poppins" data-fusion-google-variant="600">Contact-US</span></a></p>
+</div></li></ul></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-6 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-padding-top:60px;--awb-padding-bottom:60px;--awb-background-color:var(--awb-color4);--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-27 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-image-element " style="text-align:center;--awb-max-width:190px;--awb-caption-title-font-family:var(--h2_typography-font-family);--awb-caption-title-font-weight:var(--h2_typography-font-weight);--awb-caption-title-font-style:var(--h2_typography-font-style);--awb-caption-title-size:var(--h2_typography-font-size);--awb-caption-title-transform:var(--h2_typography-text-transform);--awb-caption-title-line-height:var(--h2_typography-line-height);--awb-caption-title-letter-spacing:var(--h2_typography-letter-spacing);"><span class=" fusion-imageframe imageframe-none imageframe-3 hover-type-none"><a class="fusion-no-lightbox" href="http://localhost/" target="_self" aria-label="dataxper-logo-invoice-bg-transp"><img decoding="async" width="247" height="96" src="./The NiFi Expression Language – DDP Sandbox_files/dataxper-logo-invoice-bg-transp.png" data-orig-src="http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp.png" alt="" class="img-responsive wp-image-1730 lazyautosizes ls-is-cached lazyloaded" srcset="http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp-200x78.png 200w, http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp.png 247w" data-srcset="http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp-200x78.png 200w, http://localhost/wp-content/uploads/2023/07/dataxper-logo-invoice-bg-transp.png 247w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 247px" sizes="190px"></a></span></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-7 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;--awb-padding-top:60px;--awb-padding-bottom:60px;--awb-flex-wrap:wrap;"><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap" style="max-width:calc( 1200px + 80px );margin-left: calc(-80px / 2 );margin-right: calc(-80px / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-28 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-padding-top:30px;--awb-bg-size:cover;--awb-border-color:hsla(var(--awb-color8-h),var(--awb-color8-s),calc( var(--awb-color8-l) + 60% ),calc( var(--awb-color8-a) - 72% ));--awb-border-top:1px;--awb-border-style:solid;--awb-width-large:100%;--awb-margin-top-large:60px;--awb-spacing-right-large:40px;--awb-margin-bottom-large:20px;--awb-spacing-left-large:40px;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:40px;--awb-spacing-left-medium:40px;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:40px;--awb-spacing-left-small:40px;" data-scroll-devices="small-visibility,medium-visibility,large-visibility"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-text fusion-text-31" style="--awb-font-size:14px;"><p style="text-align: center;">dataXper permits the use of this sandbox for “educational purposes” only. For any other usage please contact us.</p>
+</div><div class="fusion-text fusion-text-32" style="--awb-content-alignment:center;--awb-font-size:14px;"><p>© Copyright 2020 - 2025 |   <a href="http://dataxper.com/" target="_blank">dataXper</a>     |   Some Rights Reserved </p>
+</div></div></div></div></div>
+</div></div>
+																</div> <!-- wrapper -->
+		</div> <!-- #boxed-wrapper -->
+				<a class="fusion-one-page-text-link fusion-page-load-link" tabindex="-1" href="http://localhost/the-nifi-expression-language/#" aria-hidden="true">Page load link</a>
+
+		<div class="avada-footer-scripts">
+			<script type="text/javascript">var fusionNavIsCollapsed=function(e){var t,n;window.innerWidth<=e.getAttribute("data-breakpoint")?(e.classList.add("collapse-enabled"),e.classList.remove("awb-menu_desktop"),e.classList.contains("expanded")||window.dispatchEvent(new CustomEvent("fusion-mobile-menu-collapsed",{detail:{nav:e}})),(n=e.querySelectorAll(".menu-item-has-children.expanded")).length&&n.forEach(function(e){e.querySelector(".awb-menu__open-nav-submenu_mobile").setAttribute("aria-expanded","false")})):(null!==e.querySelector(".menu-item-has-children.expanded .awb-menu__open-nav-submenu_click")&&e.querySelector(".menu-item-has-children.expanded .awb-menu__open-nav-submenu_click").click(),e.classList.remove("collapse-enabled"),e.classList.add("awb-menu_desktop"),null!==e.querySelector(".awb-menu__main-ul")&&e.querySelector(".awb-menu__main-ul").removeAttribute("style")),e.classList.add("no-wrapper-transition"),clearTimeout(t),t=setTimeout(()=>{e.classList.remove("no-wrapper-transition")},400),e.classList.remove("loading")},fusionRunNavIsCollapsed=function(){var e,t=document.querySelectorAll(".awb-menu");for(e=0;e<t.length;e++)fusionNavIsCollapsed(t[e])};function avadaGetScrollBarWidth(){var e,t,n,l=document.createElement("p");return l.style.width="100%",l.style.height="200px",(e=document.createElement("div")).style.position="absolute",e.style.top="0px",e.style.left="0px",e.style.visibility="hidden",e.style.width="200px",e.style.height="150px",e.style.overflow="hidden",e.appendChild(l),document.body.appendChild(e),t=l.offsetWidth,e.style.overflow="scroll",t==(n=l.offsetWidth)&&(n=e.clientWidth),document.body.removeChild(e),jQuery("html").hasClass("awb-scroll")&&10<t-n?10:t-n}fusionRunNavIsCollapsed(),window.addEventListener("fusion-resize-horizontal",fusionRunNavIsCollapsed);</script><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/Avada-Child-Theme\/*","\/wp-content\/themes\/Avada\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<link rel="stylesheet" id="wp-codemirror-css" href="./The NiFi Expression Language – DDP Sandbox_files/codemirror.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="code-editor-css" href="./The NiFi Expression Language – DDP Sandbox_files/code-editor.min.css" type="text/css" media="all">
+<script type="text/javascript" src="./The NiFi Expression Language – DDP Sandbox_files/codemirror.min.js.download" id="wp-codemirror-js"></script>
+<script type="text/javascript" src="./The NiFi Expression Language – DDP Sandbox_files/underscore.min.js.download" id="underscore-js"></script>
+<script type="text/javascript" src="./The NiFi Expression Language – DDP Sandbox_files/code-editor.min.js.download" id="code-editor-js"></script>
+<script type="text/javascript" id="code-editor-js-after">
+/* <![CDATA[ */
+jQuery.extend( wp.codeEditor.defaultSettings, {"codemirror":{"indentUnit":4,"indentWithTabs":true,"inputStyle":"contenteditable","lineNumbers":true,"lineWrapping":true,"styleActiveLine":true,"continueComments":true,"extraKeys":{"Ctrl-Space":"autocomplete","Ctrl-\/":"toggleComment","Cmd-\/":"toggleComment","Alt-F":"findPersistent","Ctrl-F":"findPersistent","Cmd-F":"findPersistent"},"direction":"ltr","gutters":[],"mode":""},"csslint":{"errors":true,"box-model":true,"display-property-grouping":true,"duplicate-properties":true,"known-properties":true,"outline-none":true},"jshint":{"boss":true,"curly":true,"eqeqeq":true,"eqnull":true,"es3":true,"expr":true,"immed":true,"noarg":true,"nonbsp":true,"onevar":true,"quotmark":"single","trailing":true,"undef":true,"unused":true,"browser":true,"globals":{"_":false,"Backbone":false,"jQuery":false,"JSON":false,"wp":false}},"htmlhint":{"tagname-lowercase":true,"attr-lowercase":true,"attr-value-double-quotes":false,"doctype-first":false,"tag-pair":true,"spec-char-escape":true,"id-unique":true,"src-not-empty":true,"attr-no-duplication":true,"alt-require":true,"space-tab-mixed-disabled":"tab","attr-unsafe-chars":true}} );
+/* ]]> */
+</script>
+<script type="text/javascript" src="./The NiFi Expression Language – DDP Sandbox_files/09c58b1334ead1e27a0786080a035584.min.js.download" id="fusion-scripts-js"></script>
+				<script type="text/javascript">
+				jQuery( document ).ready( function() {
+					var ajaxurl = 'http://localhost/wp-admin/admin-ajax.php';
+					if ( 0 < jQuery( '.fusion-login-nonce' ).length ) {
+						jQuery.get( ajaxurl, { 'action': 'fusion_login_nonce' }, function( response ) {
+							jQuery( '.fusion-login-nonce' ).html( response );
+						});
+					}
+				});
+				</script>
+						</div>
+
+			<section class="to-top-container to-top-right" aria-labelledby="awb-to-top-label">
+		<a href="http://localhost/the-nifi-expression-language/#" id="toTop" class="fusion-top-top-link">
+			<span id="awb-to-top-label" class="screen-reader-text">Go to Top</span>
+
+					</a>
+	</section>
+		
+
+</body></html>
