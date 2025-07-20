@@ -1,13 +1,24 @@
 Team meeting - Connect with King & Hammed:
 * Living in Ontario / GTA ?
 * Possibility for Zoom meeting
+* WhatsApp group
+* Any other alternative
 * Background for each team member
 * Areas each team member feel comfortable with
 * Plan: 
 - Strategy/way of working : divide the tasks or work in parallel ?
 - Frequency of connecting/meeting
 - Create plan for how to approach the problem
-- 
+- Next Day/time to connect
+
+Plan:
+* Monday
+* Tuesday
+* Wednesday
+* Thursday
+* Friday
+* Saturday
+* Sunday
 
 The assignment
 - Review the PDF for the assignment
