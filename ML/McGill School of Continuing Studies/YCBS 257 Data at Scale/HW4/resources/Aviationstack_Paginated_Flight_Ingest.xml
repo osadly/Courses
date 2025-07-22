@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template>
+  <description>NiFi Template for ingesting paginated flight data from Aviationstack API (YUL only)</description>
+  <groupId>root</groupId>
+  <name>Aviationstack_Paginated_Flight_Ingest</name>
+  <encoding-version>1.0</encoding-version>
+  <timestamp>2025-07-22T18:44:16.029835Z</timestamp>
+  <snippet>
+    <!-- Template is simplified; actual processor configuration should be done in NiFi UI. -->
+    <processors>
+      <!-- 1. GenerateFlowFile -->
+      <processor>
+        <name>GenerateFlowFile</name>
+        <type>org.apache.nifi.processors.standard.GenerateFlowFile</type>
+      </processor>
+      
+      <!-- 2. UpdateAttribute (Initial offset) -->
+      <processor>
+        <name>Set Initial Offset</name>
+        <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+      </processor>
+      
+      <!-- 3. ReplaceText (Build URL) -->
+      <processor>
+        <name>Build API URL</name>
+        <type>org.apache.nifi.processors.standard.ReplaceText</type>
+      </processor>
+      
+      <!-- 4. InvokeHTTP -->
+      <processor>
+        <name>Invoke HTTP API</name>
+        <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
+      </processor>
+      
+      <!-- 5. EvaluateJsonPath -->
+      <processor>
+        <name>Extract Data Length</name>
+        <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
+      </processor>
+      
+      <!-- 6. RouteOnAttribute -->
+      <processor>
+        <name>Check if Data Exists</name>
+        <type>org.apache.nifi.processors.route.RouteOnAttribute</type>
+      </processor>
+      
+      <!-- 7. PutFile -->
+      <processor>
+        <name>Save to File</name>
+        <type>org.apache.nifi.processors.standard.PutFile</type>
+      </processor>
+      
+      <!-- 8. UpdateAttribute (Increment Offset) -->
+      <processor>
+        <name>Increment Offset</name>
+        <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+      </processor>
+      
+      <!-- 9. LogMessage -->
+      <processor>
+        <name>Log End</name>
+        <type>org.apache.nifi.processors.standard.LogMessage</type>
+      </processor>
+    </processors>
+  </snippet>
+</template>
