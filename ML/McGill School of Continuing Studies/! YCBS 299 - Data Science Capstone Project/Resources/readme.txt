@@ -9,4 +9,5 @@ https://link.springer.com/article/10.1007/s11042-020-09347-x
 https://www.tandfonline.com/doi/abs/10.1080/10106049.2020.1756463
 https://www.researchsquare.com/article/rs-6911285/v1
 https://ieeexplore.ieee.org/abstract/document/10417265
-https://ieeexplore.ieee.org/abstract/document/10417265
+https://ijsmr.in/doc/ijsmr04_16_01.pdf
+https://www.publish.csiro.au/wf/WF16135
