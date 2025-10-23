@@ -1,0 +1,19 @@
+Hi Team,
+Following Alejandro’s feedback from yesterday, I’ve outlined a few key actions for us to review before our meeting this evening.
+Main concern: The model’s high accuracy, precision, and recall may suggest data leakage or an imbalance between 1’s and 0’s in the target variable. Let’s focus on validating data integrity and ensuring balanced representation.
+1. Dataset Representation
+* Each grid cell should have two records:
+-The existing one – showing fire incidents for a given month/year.
+-A new one – showing buildings without fire incidents in the same grid cell and time period.
+This should help balance the dataset and improve model reliability. Please review and share your thoughts or alternative ideas.
+* Another suggestion is to include a feature representing the ratio or percentage of fire incidents to total buildings within each grid cell. This metric could provide additional insight into fire density and help the model better capture relative risk across spatial areas.
+
+2. Code Review & Data Leakage Check
+A Python file has been uploaded to GitHub with recent code and detailed comments.
+Notes marked # Sam highlight questions, potential improvements, and maintainability considerations.
+Please review and identify any possible data leakage or other issues for discussion.
+3. Census Data Integration
+Explore ways to incorporate census data into the final dataset to enhance model insights.
+4. Grid Size Adjustment
+Evaluate changing the grid size from 2.5 x 2.5 km to 2 x 2 km, considering potential impacts on data volume, spatial resolution, and model performance.
+Thanks everyone — please review these points so we can have a focused discussion later today.
