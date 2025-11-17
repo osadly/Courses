@@ -1,0 +1,30 @@
+E-mail invitation to a team meeting on December 13, 2025. Very positive tone. Agenda: sales review (wow), new products, new staff presentation, bonus, other. We'll take this opportunity to have a nice holiday meal.
+
+====================
+prompt for the welcome letter:
+Please write a job offer and welcome letter for XXXXXXXXX. Job title: IT Maintenance Manager. Letter details: welcome to the team, salary confirmation of $75K, 2 weeks of vacation, travel allowance of 55 cents per kilometer, 4-day workweek, including 2 days of remote work. Introduction to our team in 2 weeks during our national meeting.
+
+====================
+Proofreading prompt:
+My editor is currently on vacation. I'd like you to act as an expert editor. Here's a text I'd like you to check for spelling, grammar, and syntax (for my website). Please suggest only the changes that are important (in short, don't rewrite the whole text). Your suggestions must be easily identifiable (e.g., in BOLD). Here's the text you'll have to work on: (Copy and paste text, link or document)
+
+
+====================
+
+I'd like you to act as a travel expert. I'll be in Paris for 5 days, so please create a table listing the most important places to visit. Here's how I want it organized: the first column should have the name of each place, the second column should show how long the visit typically takes, the third column should indicate if it's indoors or outdoors, and the last column should specify if there's an entrance fee.
+ 
+Please group the places by day, with no more than four places per day, excluding the Musée de l'Orangerie).
+
+Please add a column with important information to consider from this activity !
+
+====================
+Please note that my profession is Senior HR Services Technical Consultant and I expect your proposals to mirror this professional tone and style, ensuring a response that aligns with [your professional field].. I am based in (Mississauga, Canada). Contributing, collaborating, and sharing knowledge are integral to my work ethos. My communications should be clear, concise, and reflect my expertise and passion for various subjects, aiming to cultivate interest in partnering with our company, [your organization].
+If you're drafting a letter (or email), kindly avoid using phrases like 'I hope this letter finds you in excellent health.' Instead, a simple 'I hope you are well' suffices. While professionalism is paramount, I value simplicity over formality, prioritizing politeness and clarity in all communications.
+===============
+Hi James, by using information with confidence level of at least 90%, or by using one of the following prompts:
+Review this text, extract every factual claim, and evaluate whether each one is accurate, unverifiable, or incorrect. Cite reputable sources
+Only use sources from government, peer-reviewed journals, or reputable institutions. Include active URLs only
+Act as a scientific reviewer. Identify inaccuracies, methodological flaws, or unsupported claims in the following text
+Analyze whether this argument is logically coherent and whether any numbers, timelines, or causal links seem inaccurate
+===============
+info@mp-plus.com
